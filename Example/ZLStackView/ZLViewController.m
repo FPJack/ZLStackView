@@ -1,29 +1,108 @@
 //
 //  ZLViewController.m
-//  ZLStackView
+//  ZLUIKitPlus
 //
-//  Created by fanpeng on 05/28/2026.
+//  Created by fanpeng on 04/24/2026.
 //  Copyright (c) 2026 fanpeng. All rights reserved.
 //
 
 #import "ZLViewController.h"
+#import <ZLStackView/ZLStackView.h>
+#import "ZLStackViewDemoVC.h"
+#import "ZLStackViewBenchmarkVC.h"
+#import "UIStackViewBenchmarkVC.h"
+#import "MasonryBenchmarkVC.h"
+#import "FrameBenchmarkVC.h"
 
-@interface ZLViewController ()
+@interface ZLViewController () <UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic, strong) NSArray<NSDictionary *> *demos;
 
 @end
 
 @implementation ZLViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    self.title = @"ZLUIKitPlus Demos";
+    self.view.backgroundColor = UIColor.whiteColor;
+    {
+        UIStackView *stack = UIStackView.new;
+//        stack.axis = UILayoutConstraintAxisVertical;
+//        [self.view addSubview:stack];
+//        stack.backgroundColor = UIColor.lightGrayColor;
+//        stack.zl_layout.width(200);
+//        stack.zl_layout.center();
+        
+        UILabel *lab1 = UILabel.new;
+        lab1.text = @"Hello";
+        [stack addArrangedSubview:lab1];
+        
+        UIButton *btn = UIButton.new;
+        [btn setTitle:@"World" forState:UIControlStateNormal];
+        [stack addArrangedSubview:btn];
+        
+        UIImageView *imgView = UIImageView.new;
+        imgView.image = [UIImage systemImageNamed:@"star"];
+        [stack addArrangedSubview:imgView];
+        
+        UITextField *textField = UITextField.new;
+        textField.placeholder = @"Input";
+        textField.text = @"ZLUIKitPlus";
+        [stack addArrangedSubview:textField];
+        
+        UISwitch *switchView = UISwitch.new;
+        switchView.on = YES;
+        [stack addArrangedSubview:switchView];
+        
+        UITextView *textView = UITextView.new;
+        textView.text = @"This is a UITextView.";
+        [stack addArrangedSubview:textView];
+        
+    }
+    
+//    return;
+    
+    self.demos = @[
+        @{@"title": @"ZLStackView Demo",   @"class": ZLStackViewDemoVC.class},
+        @{@"title": @"⚡ UIStackView 性能测试",  @"class": UIStackViewBenchmarkVC.class},
+        @{@"title": @"⚡ ZLStackView 性能测试",  @"class": ZLStackViewBenchmarkVC.class},
+        @{@"title": @"⚡ Masonry 性能测试",       @"class": MasonryBenchmarkVC.class},
+        @{@"title": @"⚡ Frame 性能测试",        @"class": FrameBenchmarkVC.class},
+    ];
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    [tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"cell"];
+    [self.view addSubview:tableView];
+    tableView.zl_layout.edgesZero();
+    
+    NSLog(@"%p",self.view.topAnchor);
+    NSLog(@"%p",self.view.topAnchor);
+    NSLog(@"%p",self.view.topAnchor);
+    
+    NSString *addressStr = [NSString stringWithFormat:@"%p", self.view.topAnchor];
+
+    
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.demos.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.textLabel.text = self.demos[indexPath.row][@"title"];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    Class cls = self.demos[indexPath.row][@"class"];
+    UIViewController *vc = [[cls alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

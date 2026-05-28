@@ -23,6 +23,12 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		82E6C1DBE0A0B206E739CD25 /* Pods_ZLStackView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FD33D0ED2F1E945E499957 /* Pods_ZLStackView_Tests.framework */; };
+		8486E5E12FC7E20100025243 /* ZLStackViewDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486E5E02FC7E20100025243 /* ZLStackViewDemoVC.m */; };
+		8486E5E82FC7E21F00025243 /* UIStackViewBenchmarkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486E5E52FC7E21F00025243 /* UIStackViewBenchmarkVC.m */; };
+		8486E5E92FC7E21F00025243 /* ZLStackViewBenchmarkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486E5E72FC7E21F00025243 /* ZLStackViewBenchmarkVC.m */; };
+		8486E5EA2FC7E21F00025243 /* FrameBenchmarkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486E5E32FC7E21F00025243 /* FrameBenchmarkVC.m */; };
+		8486E5ED2FC7E27500025243 /* MasonryBenchmarkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486E5EC2FC7E27500025243 /* MasonryBenchmarkVC.m */; };
+		8486E5F02FC7E5CA00025243 /* ZLSwiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486E5EF2FC7E5CA00025243 /* ZLSwiftViewController.swift */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -39,8 +45,8 @@
 /* Begin PBXFileReference section */
 		0B3E0CE4B7911D3EF1DF814F /* Pods_ZLStackView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZLStackView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FD33D0ED2F1E945E499957 /* Pods_ZLStackView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZLStackView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DE2956CFFCE824B552F9E4F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		23FCEF1E4C54D665C5EC3EE2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		1DE2956CFFCE824B552F9E4F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		23FCEF1E4C54D665C5EC3EE2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		394B01EE66CB2F0BB58C1A78 /* Pods-ZLStackView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZLStackView_Example.release.xcconfig"; path = "Target Support Files/Pods-ZLStackView_Example/Pods-ZLStackView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		39CAD332EE9D4B3FDE938A7D /* Pods-ZLStackView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZLStackView_Tests.release.xcconfig"; path = "Target Support Files/Pods-ZLStackView_Tests/Pods-ZLStackView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		447E1FC623E1EEA6376B98DD /* Pods-ZLStackView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZLStackView_Example.debug.xcconfig"; path = "Target Support Files/Pods-ZLStackView_Example/Pods-ZLStackView_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,8 +71,20 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8486E5DF2FC7E20100025243 /* ZLStackViewDemoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLStackViewDemoVC.h; sourceTree = "<group>"; };
+		8486E5E02FC7E20100025243 /* ZLStackViewDemoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLStackViewDemoVC.m; sourceTree = "<group>"; };
+		8486E5E22FC7E21F00025243 /* FrameBenchmarkVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrameBenchmarkVC.h; sourceTree = "<group>"; };
+		8486E5E32FC7E21F00025243 /* FrameBenchmarkVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrameBenchmarkVC.m; sourceTree = "<group>"; };
+		8486E5E42FC7E21F00025243 /* UIStackViewBenchmarkVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIStackViewBenchmarkVC.h; sourceTree = "<group>"; };
+		8486E5E52FC7E21F00025243 /* UIStackViewBenchmarkVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIStackViewBenchmarkVC.m; sourceTree = "<group>"; };
+		8486E5E62FC7E21F00025243 /* ZLStackViewBenchmarkVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLStackViewBenchmarkVC.h; sourceTree = "<group>"; };
+		8486E5E72FC7E21F00025243 /* ZLStackViewBenchmarkVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLStackViewBenchmarkVC.m; sourceTree = "<group>"; };
+		8486E5EB2FC7E27500025243 /* MasonryBenchmarkVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasonryBenchmarkVC.h; sourceTree = "<group>"; };
+		8486E5EC2FC7E27500025243 /* MasonryBenchmarkVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasonryBenchmarkVC.m; sourceTree = "<group>"; };
+		8486E5EE2FC7E5CA00025243 /* ZLStackView_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZLStackView_Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		8486E5EF2FC7E5CA00025243 /* ZLSwiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLSwiftViewController.swift; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8F3C2FC62FF87271E6248877 /* ZLStackView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = ZLStackView.podspec; path = ../ZLStackView.podspec; sourceTree = "<group>"; };
+		8F3C2FC62FF87271E6248877 /* ZLStackView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ZLStackView.podspec; path = ../ZLStackView.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,12 +152,24 @@
 			children = (
 				6003F59C195388D20070C39A /* ZLAppDelegate.h */,
 				6003F59D195388D20070C39A /* ZLAppDelegate.m */,
+				8486E5DF2FC7E20100025243 /* ZLStackViewDemoVC.h */,
+				8486E5E02FC7E20100025243 /* ZLStackViewDemoVC.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
+				8486E5E22FC7E21F00025243 /* FrameBenchmarkVC.h */,
+				8486E5E32FC7E21F00025243 /* FrameBenchmarkVC.m */,
+				8486E5E42FC7E21F00025243 /* UIStackViewBenchmarkVC.h */,
+				8486E5E52FC7E21F00025243 /* UIStackViewBenchmarkVC.m */,
+				8486E5E62FC7E21F00025243 /* ZLStackViewBenchmarkVC.h */,
+				8486E5E72FC7E21F00025243 /* ZLStackViewBenchmarkVC.m */,
 				6003F5A5195388D20070C39A /* ZLViewController.h */,
+				8486E5EB2FC7E27500025243 /* MasonryBenchmarkVC.h */,
+				8486E5EC2FC7E27500025243 /* MasonryBenchmarkVC.m */,
 				6003F5A6195388D20070C39A /* ZLViewController.m */,
+				8486E5EF2FC7E5CA00025243 /* ZLSwiftViewController.swift */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				8486E5EE2FC7E5CA00025243 /* ZLStackView_Example-Bridging-Header.h */,
 			);
 			name = "Example for ZLStackView";
 			path = ZLStackView;
@@ -193,7 +223,6 @@
 				45F3332369B7A8C887FC7EB1 /* Pods-ZLStackView_Tests.debug.xcconfig */,
 				39CAD332EE9D4B3FDE938A7D /* Pods-ZLStackView_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -249,6 +278,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = fanpeng;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						LastSwiftMigration = 2630;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -259,6 +291,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -365,10 +398,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ZLStackView_Example/Pods-ZLStackView_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/ZLStackView/ZLStackView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZLStackView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,8 +419,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* ZLAppDelegate.m in Sources */,
+				8486E5F02FC7E5CA00025243 /* ZLSwiftViewController.swift in Sources */,
 				6003F5A7195388D20070C39A /* ZLViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				8486E5E82FC7E21F00025243 /* UIStackViewBenchmarkVC.m in Sources */,
+				8486E5ED2FC7E27500025243 /* MasonryBenchmarkVC.m in Sources */,
+				8486E5E92FC7E21F00025243 /* ZLStackViewBenchmarkVC.m in Sources */,
+				8486E5EA2FC7E21F00025243 /* FrameBenchmarkVC.m in Sources */,
+				8486E5E12FC7E20100025243 /* ZLStackViewDemoVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,12 +554,15 @@
 			baseConfigurationReference = 447E1FC623E1EEA6376B98DD /* Pods-ZLStackView_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZLStackView/ZLStackView-Prefix.pch";
 				INFOPLIST_FILE = "ZLStackView/ZLStackView-Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZLStackView/ZLStackView_Example-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -529,12 +573,14 @@
 			baseConfigurationReference = 394B01EE66CB2F0BB58C1A78 /* Pods-ZLStackView_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZLStackView/ZLStackView-Prefix.pch";
 				INFOPLIST_FILE = "ZLStackView/ZLStackView-Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZLStackView/ZLStackView_Example-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};

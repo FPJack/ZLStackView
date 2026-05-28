@@ -1,0 +1,6 @@
+framework module Pods_ZLStackView_Example {
+  umbrella header "Pods-ZLStackView_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
