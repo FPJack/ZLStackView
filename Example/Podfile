@@ -1,10 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-platform :ios, '10.0'
+platform :ios, '13.0'
 
 target 'ZLStackView_Example' do
   pod 'ZLStackView', :path => '../'
   pod 'Masonry'
+  pod 'SnapKit'
 
   target 'ZLStackView_Tests' do
     inherit! :search_paths

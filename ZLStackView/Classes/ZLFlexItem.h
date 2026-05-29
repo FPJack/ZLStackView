@@ -12,13 +12,13 @@ NS_ASSUME_NONNULL_BEGIN
 @class ZLStackView;
 @class ZLFlexItem;
 @interface UIView (Flex)
-@property (nonatomic,readonly)ZLFlexItem *zl_flex;
+@property (nonatomic,readonly)ZLFlexItem *zl_flex NS_SWIFT_NAME(flex);
 @end
 
 
 @interface ZLFlexItem : NSObject
 
-@property (nonatomic,weak,readonly)UIView *view;
+@property (readonly)UIView *view;
 
 @property (nonatomic,assign)CGFloat startSpacing;
 
@@ -44,6 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign)CGFloat maxWidth;
 @property (nonatomic,assign)CGFloat minHeight;
 @property (nonatomic,assign)CGFloat maxHeight;
+@property (nonatomic,assign)CGSize  size;
+
 
 
 ///链式配置
@@ -58,6 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(readonly)ZLFlexItem *(^h)(CGFloat height);
 @property(readonly)ZLFlexItem *(^w)(CGFloat width);
+@property(readonly)ZLFlexItem *(^square)(CGFloat wh);
 @property(readonly)ZLFlexItem *(^minW)(CGFloat minWidth);
 @property(readonly)ZLFlexItem *(^maxW)(CGFloat maxWidth);
 @property(readonly)ZLFlexItem *(^minH)(CGFloat minHeight);

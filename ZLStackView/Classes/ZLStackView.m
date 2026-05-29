@@ -100,7 +100,6 @@
     if ([view isKindOfClass:UIView.class]) {
         if ([self.allViews containsObject:view]) return;
         ZLFlexItem *cfg = view.zl_flex;
-        [cfg setValue:view forKey:@"view"];
         [cfg setValue:self forKey:@"stackView"];
         [self.allViews addObject:view];
         [self adjustLabelCompression:view];
@@ -128,7 +127,6 @@
         [self adjustStackView:view];
         [self addSubview:view];
         ZLFlexItem *cfg = view.zl_flex;
-        [cfg setValue:view forKey:@"view"];
         [cfg setValue:self forKey:@"stackView"];
         [self.allViews insertObject:view atIndex:stackIndex];
         [self adjustLabelCompression:view];
@@ -391,23 +389,11 @@
         return self;
     };
 }
-
-- (instancetype)insetTop:(CGFloat)top
-                 leading:(CGFloat)leading
-                  bottom:(CGFloat)bottom
-                trailing:(CGFloat)trailing {
-    return self.inset(top, leading, bottom, trailing);
-}
-
 - (id _Nonnull (^)(CGFloat, CGFloat))hInset {
     return ^(CGFloat l, CGFloat t){
         self.insets = UIEdgeInsetsMake(self.insets.top, l, self.insets.bottom, t);
         return self;
     };
-}
-- (instancetype)hInsetLeading:(CGFloat)leading
-                     trailing:(CGFloat)trailing {
-    return self.hInset(leading, trailing);
 }
 - (id _Nonnull (^)(CGFloat, CGFloat))vInset {
     return ^(CGFloat t, CGFloat b){
@@ -415,105 +401,72 @@
         return self;
     };
 }
-- (instancetype)vInsetTop:(CGFloat)top
-                   bottom:(CGFloat)bottom {
-    return self.vInset(top, bottom);
-}
 - (id _Nonnull (^)(CGFloat))space {
     return ^(CGFloat spacing){
-        return [self space:spacing];
+        self.spacing = spacing;
+        return self;
     };
-}
-- (instancetype)space:(CGFloat)spacing {
-    self.spacing = spacing;
-    return self;
 }
 
 - (id _Nonnull (^)(CGFloat))insertSpace {
     return ^(CGFloat spacing){
-        return [self insertSpace:spacing];
+        self.allViews.lastObject.zl_flex.spacing = spacing;
+        return self;
     };
-}
-- (instancetype)insertSpace:(CGFloat)spacing {
-    self.allViews.lastObject.zl_flex.spacing = spacing;
-    return self;
 }
 - (id _Nonnull (^)(CGFloat))insertMinSpace {
     return ^(CGFloat spacing){
-        return [self insertMinSpace:spacing];
+        self.allViews.lastObject.zl_flex.minSpacing = spacing;
+        return self;
     };
-}
-- (instancetype)insertMinSpace:(CGFloat)spacing {
-    self.allViews.lastObject.zl_flex.minSpacing = spacing;
-    return self;
 }
 - (id _Nonnull (^)(CGFloat))insertMaxSpace {
     return ^(CGFloat spacing){
-        return [self insertMaxSpace:spacing];
+        self.allViews.lastObject.zl_flex.maxSpacing = spacing;
+        return self;
     };
-}
-- (instancetype)insertMaxSpace:(CGFloat)spacing {
-    self.allViews.lastObject.zl_flex.maxSpacing = spacing;
-    return self;
 }
 - (id _Nonnull (^)(BOOL))insertFlexSpace {
     return ^(BOOL flexible){
-        return [self insertFlexSpace:flexible];
+        self.allViews.lastObject.zl_flex.isFlexSpace = flexible;
+        return self;
     };
-}
-- (instancetype)insertFlexSpace:(BOOL)flexible {
-    self.allViews.lastObject.zl_flex.isFlexSpace = flexible;
-    return self;
 }
 - (id _Nonnull (^)(UIView * _Nonnull))addView {
     return ^(UIView *view){
-        return [self addView:view];
+        [self addArrangedSubview:view];
+        return self;
     };
-}
-- (instancetype)addView:(UIView *)view {
-    [self addArrangedSubview:view];
-    return self;
 }
 - (id  _Nonnull (^)(BOOL, UIView * _Nonnull))addViewIf {
     return ^(BOOL condition, UIView *view){
-        return [self addViewIf:condition view:view];
+        if (condition) {
+            [self addArrangedSubview:view];
+        }
+        return self;
     };
 }
-- (instancetype)addViewIf:(BOOL)condition view:(UIView *)view {
-    if (condition) {
-        [self addArrangedSubview:view];
-    }
-    return self;
-}
-
 - (id  _Nonnull (^)(BOOL, UIView * _Nonnull (^ _Nonnull)(ZLBaseStackView * _Nonnull)))addViewMakeIf {
     return ^(BOOL condition, UIView * _Nonnull (^make)(ZLBaseStackView *stackView)){
-        return [self addViewMakeIf:condition make:make];
+        if (condition && make) {
+            UIView *view = make(self);
+            if (view) {
+                [self addArrangedSubview:view];
+            }
+        }
+        return self;
     };
 }
-- (instancetype)addViewMakeIf:(BOOL)condition make:(UIView *(^)(ZLBaseStackView *stackView))make {
-    if (condition && make) {
-        UIView *view = make(self);
-        if (view) {
-            [self addArrangedSubview:view];
-        }
-    }
-    return self;
-}
-
 - (id  _Nonnull (^)(UIView * _Nonnull (^ _Nonnull)(ZLBaseStackView * _Nonnull)))addViewMake {
     return ^(UIView * _Nonnull (^make)(ZLBaseStackView *stackView)){
-        return [self addViewMake:make];
-    };
-}
-- (instancetype)addViewMake:(UIView *(^)(ZLBaseStackView *stackView))make {
-    if (make) {
-        UIView *view = make(self);
-        if (view) {
-            [self addArrangedSubview:view];
+        if (make) {
+            UIView *view = make(self);
+            if (view) {
+                [self addArrangedSubview:view];
+            }
         }
-    }
-    return self;
+        return self;
+    };
 }
 - (id _Nonnull (^)(UIView * _Nonnull, void (^ _Nonnull)(__kindof UIView * _Nonnull, ZLFlexItem * _Nonnull)))addViewLayout {
     return ^(UIView *view, void (^config)(__kindof UIView *, ZLFlexItem *)){
@@ -521,29 +474,18 @@
         return self;
     };
 }
-- (instancetype)addView:(UIView *)view layout:(void(^)(__kindof UIView *view, ZLFlexItem *flexItem))layout {
-    [self addArrangedSubview:view layout:layout];
-    return self;
-}
 - (id _Nonnull (^)(CGFloat,UIView * _Nonnull))spacingAfter {
     return ^(CGFloat spacing,UIView *view){
         [self setCustomSpacing:spacing afterView:view];
         return self;
     };
 }
-- (instancetype)spacing:(CGFloat)spacing afterView:(UIView *)arrangedSubview {
-    [self setCustomSpacing:spacing afterView:arrangedSubview];
-    return self;
-}
+
 - (id _Nonnull (^)(CGFloat,UIView * _Nonnull))minSpacingAfter {
     return ^(CGFloat spacing,UIView *view){
         [self setCustomMinSpacing:spacing afterView:view];
         return self;
     };
-}
-- (instancetype)minSpacing:(CGFloat)minSpacing afterView:(UIView *)arrangedSubview {
-    [self setCustomMinSpacing:minSpacing afterView:arrangedSubview];
-    return self;
 }
 - (id _Nonnull (^)(CGFloat,UIView * _Nonnull))maxSpacingAfter {
     return ^(CGFloat spacing,UIView *view){
@@ -551,41 +493,23 @@
         return self;
     };
 }
-- (instancetype)maxSpacing:(CGFloat)maxSpacing afterView:(UIView *)arrangedSubview {
-    [self setCustomMaxSpacing:maxSpacing afterView:arrangedSubview];
-    return self;
-}
 - (id _Nonnull (^)(NSInteger,UIView * _Nonnull))flexFor {
     return ^(NSInteger flex,UIView *view){
         [self setFlex:flex forView:view];
         return self;
     };
 }
-- (instancetype)flex:(NSInteger)flex forView:(UIView *)arrangedSubview {
-    [self setFlex:flex forView:arrangedSubview];
-    return self;
-}
-
 - (id _Nonnull (^)( BOOL,UIView * _Nonnull))flexSpacingAfter {
     return ^(BOOL flexible,UIView *view){
         [self setFlexibleSpacing:flexible afterView:view];
         return self;
     };
 }
-- (instancetype)flexibleSpacing:(BOOL)flexible afterView:(UIView *)arrangedSubview {
-    [self setFlexibleSpacing:flexible afterView:arrangedSubview];
-    return self;
-}
-
 - (id _Nonnull (^)( ZLAlign,UIView * _Nonnull))alignFor {
     return ^(ZLAlign alignment,UIView *view){
         [self setAlignment:alignment forView:view];
         return self;
     };
-}
-- (instancetype)align:(ZLAlign)alignment forView:(UIView *)arrangedSubview {
-    [self setAlignment:alignment forView:arrangedSubview];
-    return self;
 }
 - (id _Nonnull (^)( CGFloat,UIView * _Nonnull))alignStartSpacingFor {
     return ^(CGFloat spacing,UIView *view){
@@ -593,28 +517,17 @@
         return self;
     };
 }
-- (instancetype)alignStartSpacing:(CGFloat)spacing forView:(UIView *)arrangedSubview {
-    [self setAlignmentStartSpacing:spacing forView:arrangedSubview];
-    return self;
-}
 - (id _Nonnull (^)( CGFloat,UIView * _Nonnull))alignEndSpacingFor {
     return ^(CGFloat spacing,UIView *view){
         [self setAlignmentEndSpacing:spacing forView:view];
         return self;
     };
 }
-- (instancetype)alignEndSpacing:(CGFloat)spacing forView:(UIView *)arrangedSubview {
-    [self setAlignmentEndSpacing:spacing forView:arrangedSubview];
-    return self;
-}
 - (id _Nonnull (^)(ZLBaseStackView * _Nullable __autoreleasing * _Nullable))assignToPtr {
     return ^(ZLBaseStackView **ptr){
-        return [self assignToPtr:ptr];
+        if (ptr) *ptr = self;
+        return self;
     };
-}
-- (instancetype)assignToPtr:(ZLBaseStackView *_Nullable* _Nullable)ptr {
-    if (ptr) *ptr = self;
-    return self;
 }
 - (id  _Nonnull (^)(void (^ _Nonnull)(ZLBaseStackView * _Nonnull)))tapAction {
     return ^(void (^action)(ZLBaseStackView *stackView)){

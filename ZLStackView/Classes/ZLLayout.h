@@ -176,7 +176,7 @@ typedef NS_ENUM(NSInteger, ZLAttr) {
 @end
 
 @interface UIView (ZLLayout)
-@property (nonatomic,readonly)ZLLayout *zl_layout;
+@property (nonatomic,readonly)ZLLayout *zl_layout NS_SWIFT_NAME(layout);
 @end
 
 NS_ASSUME_NONNULL_END

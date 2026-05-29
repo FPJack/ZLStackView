@@ -12,29 +12,74 @@ class ZLSwiftViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let view = UIView()
-        ZLStackView.horizontal()
-//            .addView(if: true, view: UIView())
-            .addView(if: true) {  stackView in
-                return view
-            }
-            .addView(view) {  _, __ in
-                
-            }
-            .addView { stackView in
-                return view
-            }
-            .justifyEnd()
-            .spacing(10, after: view)
-            .minSpacing(0, after: view)
-            .maxSpacing(0, after: view)
-            .flex(2, for: view)
-            .flexibleSpacing(true, after: view)
-            .align(.center, for: view)
-            .alignStartSpacing(10, for: view)
-            .alignEndSpacing(10, for: view)
-            
         
-
+        view.backgroundColor = .orange
+        
+        StackView{
+            UISwitch()
+            
+            2
+            
+            UISwitch()
+            
+            2
+            
+            UISwitch()
+            
+            2
+            
+            UIView()
+                .flex
+                .width(100)
+                .height(100)
+            
+            UISwitch()
+            3
+        }.vertical().addTo(view)
+        .centerOffset(0,0)
+        if true {
+            return
+        }
+        
+        StackView
+            .vertical()
+            .inset(10, 10, 10, 10)
+            .hInset(10, 10)
+            .spacing(10)
+            .spacing(10, after: view)
+            .spacing(flexible: true, after: view)
+            .minSpacing(10, after: view)
+            .maxSpacing(10, after: view)
+            .insertSpacing(10)
+            .insertSpacing(max: 10)
+            .insertSpacing(min: 10)
+            .insertSpacing(flexible: true)
+            .flex(2, for: view)
+            .addView(if: true, UISwitch().flex
+                .spacing(50)
+                .startSpacing(10)
+                .endSpacing(10)
+                .flex(3)
+                     
+                .align(.center)
+                )
+            .addView(if: true, using: { _ in
+                let view = UISwitch()
+                view.isOn = true
+                return view
+            })
+            .addView(using: { stackview in
+               return UISwitch()
+            })
+            .align(.center, for: view)
+            .startSpacing(10, for: view)
+            .addTo(view)
+            .centerOffset(0,0)
+        ;
+        
+        
+        
+        print(VStackView,VStackView)
     }
 }
+

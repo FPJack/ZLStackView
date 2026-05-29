@@ -13,6 +13,8 @@
 #import "UIStackViewBenchmarkVC.h"
 #import "MasonryBenchmarkVC.h"
 #import "FrameBenchmarkVC.h"
+#import "ZLStackView-Swift.h"
+#import "ZLStackView_Example-Swift.h"
 
 @interface ZLViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) NSArray<NSDictionary *> *demos;
@@ -68,6 +70,9 @@
         @{@"title": @"⚡ ZLStackView 性能测试",  @"class": ZLStackViewBenchmarkVC.class},
         @{@"title": @"⚡ Masonry 性能测试",       @"class": MasonryBenchmarkVC.class},
         @{@"title": @"⚡ Frame 性能测试",        @"class": FrameBenchmarkVC.class},
+        @{@"title": @"⚡ Frame 性能测试",        @"class": FrameBenchmarkVC.class},
+        @{@"title": @"⚡ swift",        @"class": ZLSwiftViewController.class},
+
     ];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];

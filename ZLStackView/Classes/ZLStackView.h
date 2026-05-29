@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface ZLBaseStackView<ObjectType> : UIView
+@interface ZLBaseStackView<__covariant ObjectType> : UIView
 
 ///水平排列还是垂直排列，默认水平排列 默认水平排列
 @property (nonatomic,assign)ZLStackViewAxis axis;
@@ -89,94 +89,50 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @property (readonly)ObjectType (^inset)(CGFloat top, CGFloat leading, CGFloat bottom, CGFloat trailing);
-
-- (instancetype)insetTop:(CGFloat)top
-                 leading:(CGFloat)leading
-                  bottom:(CGFloat)bottom
-                trailing:(CGFloat)trailing NS_SWIFT_NAME(insets(top:leading:bottom:trailing:));
-
 ///水平方向的间距
 @property (readonly)ObjectType (^hInset)(CGFloat leading, CGFloat trailing);
-- (instancetype)hInsetLeading:(CGFloat)leading
-                      trailing:(CGFloat)trailing NS_SWIFT_NAME(hInset(leading:trailing:));
 ///垂直方向的间距
 @property (readonly)ObjectType (^vInset)(CGFloat top, CGFloat bottom);
-- (instancetype)vInsetTop:(CGFloat)top
-                   bottom:(CGFloat)bottom NS_SWIFT_NAME(vInset(top:bottom:));
-
 @property (readonly)ObjectType (^space)(CGFloat spacing);
-- (instancetype)space:(CGFloat)spacing;
 
 @property (readonly)ObjectType (^insertSpace)(CGFloat spacing);
-- (instancetype)insertSpace:(CGFloat)spacing;
-
 @property (readonly)ObjectType (^insertMinSpace)(CGFloat spacing);
-- (instancetype)insertMinSpace:(CGFloat)spacing;
-
 @property (readonly)ObjectType (^insertMaxSpace)(CGFloat spacing);
-- (instancetype)insertMaxSpace:(CGFloat)spacing;
-
 @property (readonly)ObjectType (^insertFlexSpace)(BOOL flexible);
-- (instancetype)insertFlexSpace:(BOOL)flexible;
-
 
 /// 添加一个已创建好的 view
 @property (readonly)ObjectType (^addView)(UIView *view);
-- (instancetype)addView:(UIView *)view;
 
 
 /// 根据条件决定是否添加 view，condition 为 YES 才添加
 @property (readonly)ObjectType (^addViewIf)(BOOL condition, UIView *view);
-- (instancetype)addViewIf:(BOOL)condition view:(UIView *)view
-NS_SWIFT_NAME(addView(if:view:));
 
 /// 根据条件决定是否通过 block 创建并添加 view，condition 为 YES 才执行 block 并添加
 @property (readonly)ObjectType (^addViewMakeIf)(BOOL condition, UIView *(^make)(ZLBaseStackView *stackView));
-- (instancetype)addViewMakeIf:(BOOL)condition make:(UIView *(^)(ZLBaseStackView *stackView))make
-    NS_SWIFT_NAME(addView(if:make:));
 
 /// 添加 view 并同时配置其 FlexItem 布局属性
 @property (readonly)ObjectType (^addViewLayout)(
     UIView *view,
     void(^)(__kindof UIView *view, ZLFlexItem *flexItem)
 );
-- (instancetype)addView:(UIView *)view layout:(void(^)(__kindof UIView *view, ZLFlexItem *flexItem))layout NS_SWIFT_NAME(addView(_:layout:));
-
 
 /// 通过 block 创建并添加 view（block 内返回要添加的 view）
 @property (readonly)ObjectType (^addViewMake)(UIView *(^make)(ZLBaseStackView *stackView));
-- (instancetype)addViewMake:(UIView *(^)(ZLBaseStackView *stackView))make NS_SWIFT_NAME(addView(make:));
 
 
 @property (readonly)ObjectType (^spacingAfter)(CGFloat spacing,UIView *arrangedSubview);
-- (instancetype)spacing:(CGFloat)spacing afterView:(UIView *)arrangedSubview NS_SWIFT_NAME(spacing(_:after:));
 
 @property (readonly)ObjectType (^minSpacingAfter)(CGFloat minSpacing,UIView *arrangedSubview);
-- (instancetype)minSpacing:(CGFloat)minSpacing afterView:(UIView *)arrangedSubview NS_SWIFT_NAME(minSpacing(_:after:));
-
 @property (readonly)ObjectType (^maxSpacingAfter)(CGFloat maxSpacing,UIView *arrangedSubview);
-- (instancetype)maxSpacing:(CGFloat)maxSpacing afterView:(UIView *)arrangedSubview NS_SWIFT_NAME(maxSpacing(_:after:));
-
 @property (readonly)ObjectType (^flexFor)(NSInteger flex,UIView *arrangedSubview);
-- (instancetype)flex:(NSInteger)flex forView:(UIView *)arrangedSubview NS_SWIFT_NAME(flex(_:for:));
-
 @property (readonly)ObjectType (^flexSpacingAfter)(BOOL flexible,UIView *arrangedSubview);
-- (instancetype)flexibleSpacing:(BOOL)flexible afterView:(UIView *)arrangedSubview NS_SWIFT_NAME(flexibleSpacing(_:after:));
-
 @property (readonly)ObjectType (^alignFor)(ZLAlign alignment,UIView *arrangedSubview);
-- (instancetype)align:(ZLAlign)alignment forView:(UIView *)arrangedSubview NS_SWIFT_NAME(align(_:for:));
-
 @property (readonly)ObjectType (^alignStartSpacingFor)(CGFloat spacing,UIView *arrangedSubview);
-- (instancetype)alignStartSpacing:(CGFloat)spacing forView:(UIView *)arrangedSubview NS_SWIFT_NAME(alignStartSpacing(_:for:));
-
 @property (readonly)ObjectType (^alignEndSpacingFor)(CGFloat spacing,UIView *arrangedSubview);
-- (instancetype)alignEndSpacing:(CGFloat)spacing forView:(UIView *)arrangedSubview NS_SWIFT_NAME(alignEndSpacing(_:for:));
-
 ///赋值当前对象到一个指针上
 /// 例如：ZLButton *btn;
 ///  ZLButton.new.assignToPtr(&btn);
-@property (readonly) ObjectType (^assignToPtr)(ZLBaseStackView *_Nullable* _Nullable ptr);
-- (instancetype)assignToPtr:(ZLBaseStackView *_Nullable* _Nullable)ptr NS_SWIFT_NAME(assign(to:));
+@property (readonly) ObjectType (^assignToPtr)(ZLBaseStackView *_Nullable* _Nullable buttonPtr);
 
 ///点击事件
 @property (readonly) ObjectType (^tapAction)(void(^)(ZLBaseStackView *view));
@@ -192,8 +148,8 @@ NS_SWIFT_NAME(addView(if:view:));
 
 ///设置圆角
 @property (readonly) ObjectType (^corner)(CGFloat radius);
-///设置哪个方向圆角 CACornerMask
-@property (readonly) ObjectType (^corners)(CACornerMask corners);
+///设置哪个方向圆角 CACornerMask 11可用
+@property (readonly) ObjectType (^corners)(CACornerMask corners) NS_AVAILABLE_IOS(11.0); ;
 ///UIColor or #333333
 @property (readonly) ObjectType (^borderColor)(id);
 
@@ -209,7 +165,6 @@ NS_SWIFT_NAME(addView(if:view:));
 //默认6
 @property (readonly) ObjectType (^shRadius)(CGFloat radius);
 
-- (instancetype)shRadius:(CGFloat)radisu;
 
 @property (readonly) ObjectType (^masksToBounds)(BOOL masksToBounds);
 
@@ -231,7 +186,6 @@ NS_SWIFT_NAME(addView(if:view:));
 @property (readonly) ObjectType (^height)(CGFloat height);
 ///设置宽度
 @property (readonly) ObjectType (^width)(CGFloat width);
-- (instancetype)width:(CGFloat)width;
 ///同时设置宽高
 @property (readonly) ObjectType (^size)(CGFloat width,CGFloat height);
 ///设置宽高相等

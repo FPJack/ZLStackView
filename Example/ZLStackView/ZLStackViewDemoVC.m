@@ -249,7 +249,6 @@ static ZLStackView *sectionView(NSString *title) {
     [row setCustomMinSpacing:4 afterView:b];
     [row setCustomMaxSpacing:30 afterView:b];
     [row addArrangedSubview:c];
-
     [sec addArrangedSubview:row];
 //    return;
 

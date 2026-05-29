@@ -13,23 +13,14 @@
 #import "ZLFlexManager.h"
 #import "ZLConstraintItem.h"
 
-@implementation UIView (Flex)
-- (ZLFlexItem *)zl_flex {
-    ZLFlexItem *cfg = objc_getAssociatedObject(self, _cmd);
-    if (!cfg) {
-        cfg = ZLFlexItem.new;
-        objc_setAssociatedObject(self, _cmd, cfg, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    return cfg;
-}
-@end
+
 @interface ZLFlexItem()
 ///是否设置对齐方式
 @property (nonatomic,assign)BOOL isSetAlign;
 ///记录已kvo
 @property (nonatomic,assign)BOOL isKVOAdded;
 @property (nonatomic,weak)ZLStackView *stackView;
-@property (nonatomic,weak,readwrite)UIView *view;
+@property (nonatomic,weak)UIView *weakView;
 @end
 @implementation ZLFlexItem
 @synthesize alignSelf = _alignSelf;
@@ -43,7 +34,9 @@
 - (ZLAlign)alignSelf {
     return self.isSetAlign ? _alignSelf : self.stackView.alignment;
 }
-
+- (UIView *)view {
+    return self.weakView;
+}
 
 - (void)setSpacing:(CGFloat)spacing {
     if (spacing == _spacing) return;
@@ -126,13 +119,14 @@
     _flexValue = flexValue;
     [self setStackViewNeedsUpdateConstraints];
 }
-- (void)setView:(UIView *)view {
-    _view = view;
+- (void)setWeakView:(UIView *)weakView {
+    _weakView = weakView;
     if (!self.isKVOAdded) {
         self.isKVOAdded = YES;
-        [view addObserver:self forKeyPath:@"hidden" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+        [weakView addObserver:self forKeyPath:@"hidden" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
     }
 }
+
 - (void)setWidth:(CGFloat)width {
     if (width == _width) return;
     _width = width;
@@ -166,7 +160,11 @@
     if (maxHeight == _maxHeight) return;
     _maxHeight = maxHeight;
     self.view.zl_layout.maxHeight(maxHeight);
-
+}
+- (void)setSize:(CGSize)size {
+    if (CGSizeEqualToSize(size, _size)) return;
+    _size = size;
+    self.view.zl_layout.size(size.width,size.height);
 }
 - (void)setStackViewNeedsUpdateConstraints {
     if (!self.view.superview || !self.stackView || ![self.stackView isEqual:self.view.superview]) return;
@@ -198,6 +196,12 @@
 - (ZLFlexItem * _Nonnull (^)(CGFloat))end {
     return ^(CGFloat spacing) {
         self.endSpacing = spacing;
+        return self;
+    };
+}
+- (ZLFlexItem * _Nonnull (^)(CGFloat))space {
+    return ^(CGFloat spacing) {
+        self.spacing = spacing;
         return self;
     };
 }
@@ -292,4 +296,18 @@
 }
 
 
+@end
+
+
+@implementation UIView (Flex)
+- (ZLFlexItem *)zl_flex {
+     ZLFlexItem *cfg = objc_getAssociatedObject(self, _cmd);
+    if (!cfg) {
+        cfg = ZLFlexItem.new;
+        __autoreleasing UIView *view = self;
+        cfg.weakView = view;
+        objc_setAssociatedObject(self, _cmd, cfg, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return cfg;
+}
 @end
