@@ -198,6 +198,7 @@
                     }
                     if (cfg.minSpacing) {
                         cons = [spacingGuide.widthAnchor constraintGreaterThanOrEqualToConstant:cfg.minSpacing];
+                        cons.priority =  UILayoutPriorityRequired - 0.1;
                         cons.item.type = ZLLayoutConTypeMinSpacing;
                         cons.item.view = view;
                         [self.constraints addObject:cons];
@@ -424,6 +425,7 @@
                     }
                     if (cfg.minSpacing) {
                         cons = [spacingGuide.heightAnchor constraintGreaterThanOrEqualToConstant:cfg.minSpacing];
+                        cons.priority = UILayoutPriorityRequired - 0.1;
                         cons.item.type = ZLLayoutConTypeMinSpacing;
                         cons.item.view = view;
                         [self.constraints addObject:cons];

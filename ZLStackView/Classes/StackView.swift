@@ -120,20 +120,106 @@ extension ZLFlexItem {
 ///DSL协议
 public protocol StackViewDSL {}
 extension UIView: StackViewDSL {}
+extension Float: StackViewDSL {}
 extension Int: StackViewDSL {}
+extension Double: StackViewDSL {}
+public enum Spacer {
+    case normal
+    case min(Float)
+    case max(Float)
+    case value(Float)
+
+    public init() {
+        self = .normal
+    }
+    public init(value: Float) {
+        self = .value(value)
+    }
+}
+extension Spacer: StackViewDSL {}
+
+
+public protocol SpacerType {
+    var minSpacing: Spacer {get}
+    var maxSpacing: Spacer {get}
+}
+
+extension Int: SpacerType {
+    public var minSpacing: Spacer {
+        Spacer.min(Float(self))
+    }
+    public var maxSpacing: Spacer {
+        Spacer.max(Float(self))
+    }
+}
+extension Float: SpacerType {
+    public var minSpacing: Spacer {
+        Spacer.min(self)
+    }
+    public var maxSpacing: Spacer {
+        Spacer.max(self)
+    }
+}
+extension Double: SpacerType {
+    public var minSpacing: Spacer {
+        Spacer.min(Float(self))
+    }
+    public var maxSpacing: Spacer {
+        Spacer.max(Float(self))
+    }
+}
+
 extension ZLFlexItem: StackViewDSL {}
 
 
 @resultBuilder
 public struct StackViewBuilder {
-    public static func buildBlock(_ components: StackViewDSL...) -> [StackViewDSL] {
-        components
+    public static func buildBlock(
+        _ components: [StackViewDSL]...
+    ) -> [StackViewDSL] {
+        components.flatMap { $0 }
+    }
+
+    public static func buildExpression(
+        _ expression: StackViewDSL
+    ) -> [StackViewDSL] {
+        [expression]
+    }
+
+    public static func buildOptional(
+        _ component: [StackViewDSL]?
+    ) -> [StackViewDSL] {
+        component ?? []
+    }
+
+    public static func buildEither(
+        first component: [StackViewDSL]
+    ) -> [StackViewDSL] {
+        component
+    }
+
+    public static func buildEither(
+        second component: [StackViewDSL]
+    ) -> [StackViewDSL] {
+        component
     }
 }
-
 open class StackView: ZLStackView {
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
     public init(@StackViewBuilder builder: () -> [StackViewDSL]) {
         super.init(frame: .zero)
+        addViews(builder: builder)
+    }
+   @discardableResult
+   public func callAsFunction(
+           @StackViewBuilder builder: () -> [StackViewDSL]
+       ) -> StackView {
+           addViews(builder: builder)
+           return self
+    }
+    func addViews(builder: () -> [StackViewDSL]) {
         let arr = builder()
         arr.forEach { component in
             if let view = component as? UIView {
@@ -142,16 +228,23 @@ open class StackView: ZLStackView {
                 insertSpacing(CGFloat(item))
             }else if let item = component as? ZLFlexItem {
                 addView(item)
+            }else if let item = component as? Spacer {
+                switch item {
+                case .normal:
+                    insertSpacing(flexible: true)
+                case .min(let value):
+                    insertSpacing(min: CGFloat(value))
+                case .max(let value):
+                    insertSpacing(max: CGFloat(value))
+                case .value(let value):
+                    insertSpacing(CGFloat(value))
+                }
             }
-                    
         }
     }
-    
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
     
     @available(*, unavailable)
     open override var inset: (CGFloat, CGFloat, CGFloat, CGFloat) -> ZLStackView {
@@ -413,10 +506,14 @@ open class StackView: ZLStackView {
         super.corner(radius) as! Self
     }
     
-    @available(*, unavailable)
-    open override var corners: (CACornerMask) -> ZLStackView {
-        super.corners
-    }
+//    @available(*, unavailable)
+//    open override var corners: (CACornerMask) -> ZLStackView {
+//        if #available(iOS 11.0, *) {
+//            super.corners
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//    }
     
     @available(iOS 11.0, *)
     @discardableResult
@@ -687,13 +784,39 @@ open class StackView: ZLStackView {
     }
 }
 
-
-
-public var VStackView: StackView {
-    return StackView.vertical()
+open class VStackView: StackView {
+    
+    @available(*, unavailable)
+    open override class func horizontal() -> Self {
+        super.horizontal()
+    }
+    
+    @available(*, unavailable)
+    open override var axis: ZLStackViewAxis {
+         get { .horizontal }
+        set { super.axis = newValue}
+     }
 }
-public var HStackView: StackView {
-    return StackView.horizontal()
+
+open class HStackView: StackView {
+    
+    @available(*, unavailable)
+    open override class func vertical() -> Self {
+        super.vertical()
+    }
+    
+    @available(*, unavailable)
+    open override var axis: ZLStackViewAxis {
+         get { .horizontal }
+        set { super.axis = newValue}
+     }
 }
+
+//public var VStackView: StackView {
+//    return StackView.vertical()
+//}
+//public var HStackView: StackView {
+//    return StackView.horizontal()
+//}
 
 
