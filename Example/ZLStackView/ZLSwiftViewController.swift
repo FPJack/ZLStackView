@@ -87,33 +87,35 @@ class ZLSwiftViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(makeText())
-        
         view.backgroundColor = .orange
         var flag = false
-        
+        let label = UILabel()
+        label.text = "kdkdkd"
+        label.setContentHuggingPriority(.fittingSizeLevel - 1, for: .vertical)
+        label.setContentCompressionResistancePriority(.fittingSizeLevel  - 1, for: .vertical)
         StackView{
             UISwitch()
-            
-            50
-            
+            20
             UISwitch()
-            
-            50.minSpacing
-
+            40.minSpacing
             UISwitch()
-            
-            50.maxSpacing
-            
+            80.maxSpacing
             UISwitch()
-            
             Spacer()
-            
             UISwitch()
         }.vertical()
          .height(300)
         .bgColor(UIColor.red)
         .addTo(view)
         .centerOffset(0,0)
+        
+        
+        
+        VStackView().addViews {
+            UILabel()
+            UILabel()
+            UILabel()
+        }
     
         
        

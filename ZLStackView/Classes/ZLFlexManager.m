@@ -198,9 +198,15 @@
                     }
                     if (cfg.minSpacing) {
                         cons = [spacingGuide.widthAnchor constraintGreaterThanOrEqualToConstant:cfg.minSpacing];
-                        cons.priority =  UILayoutPriorityRequired - 0.1;
                         cons.item.type = ZLLayoutConTypeMinSpacing;
                         cons.item.view = view;
+                        [self.constraints addObject:cons];
+                        
+                        ///优先展示最小宽度
+                        cons = [spacingGuide.widthAnchor constraintEqualToConstant:cfg.minSpacing];
+                        cons.item.type = ZLLayoutConTypeMinSpacing;
+                        cons.item.view = view;
+                        cons.priority = UILayoutPriorityDefaultLow;
                         [self.constraints addObject:cons];
                     }
                     if (cfg.maxSpacing) {
@@ -425,7 +431,14 @@
                     }
                     if (cfg.minSpacing) {
                         cons = [spacingGuide.heightAnchor constraintGreaterThanOrEqualToConstant:cfg.minSpacing];
-                        cons.priority = UILayoutPriorityRequired - 0.1;
+                        cons.item.type = ZLLayoutConTypeMinSpacing;
+                        cons.item.view = view;
+                        [self.constraints addObject:cons];
+                        
+                        
+                        ///优先展示最小高度
+                        cons = [spacingGuide.heightAnchor constraintEqualToConstant:cfg.minSpacing];
+                        cons.priority = UILayoutPriorityDefaultLow;
                         cons.item.type = ZLLayoutConTypeMinSpacing;
                         cons.item.view = view;
                         [self.constraints addObject:cons];

@@ -210,16 +210,25 @@ open class StackView: ZLStackView {
     }
     public init(@StackViewBuilder builder: () -> [StackViewDSL]) {
         super.init(frame: .zero)
-        addViews(builder: builder)
+        addViews(with: builder)
     }
    @discardableResult
    public func callAsFunction(
            @StackViewBuilder builder: () -> [StackViewDSL]
-       ) -> StackView {
-           addViews(builder: builder)
+       ) -> Self {
+           addViews(with: builder)
            return self
+   }
+    @discardableResult
+    public func addViews(
+            @StackViewBuilder builder: () -> [StackViewDSL]
+        ) -> Self {
+            addViews(with: builder)
+            return self
     }
-    func addViews(builder: () -> [StackViewDSL]) {
+    
+    
+    func addViews(with builder: () -> [StackViewDSL]) {
         let arr = builder()
         arr.forEach { component in
             if let view = component as? UIView {
@@ -794,7 +803,7 @@ open class VStackView: StackView {
     @available(*, unavailable)
     open override var axis: ZLStackViewAxis {
          get { .horizontal }
-        set { super.axis = newValue}
+         set { super.axis = newValue}
      }
 }
 
@@ -808,7 +817,7 @@ open class HStackView: StackView {
     @available(*, unavailable)
     open override var axis: ZLStackViewAxis {
          get { .horizontal }
-        set { super.axis = newValue}
+         set { super.axis = newValue}
      }
 }
 

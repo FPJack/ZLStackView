@@ -210,6 +210,7 @@
     }];
     if (arr.count > 0) {
         arr.firstObject.constant = MAX(0, minSpacing);
+        arr.lastObject.constant = MAX(0, minSpacing);
     }else {
         self.markedDirty = YES;
         [self setNeedsUpdateConstraints];
