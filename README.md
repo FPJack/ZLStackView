@@ -411,14 +411,15 @@ final class DemoViewController: UIViewController {
 
                 VStackView {
                     UILabel().flex.height(20).align(.fill)
+                    
+                    4
+                    
                     UILabel().flex.height(16).align(.fill)
                 }
-                .spacing(4)
-                .flex.flex(1).align(.fill).view   // 取回底层 view 作为外层 HStack 的 child
+                .flex.flex(1).align(.fill)
 
-                UIButton(type: .system).flex
-                    .size(60, 28)
-                    .align(.center)
+                UIButton(type: .system).flex.size(60, 28).align(.center)
+                
             }
             .spacing(8)
             .alignment(.center)
@@ -426,9 +427,7 @@ final class DemoViewController: UIViewController {
             12
 
             // 描述
-            UILabel().flex
-                .align(.fill)
-                .minHeight(20)
+            UILabel().flex.align(.fill).minHeight(20)
 
             // 操作区：左右按钮，中间弹性
             HStackView {
