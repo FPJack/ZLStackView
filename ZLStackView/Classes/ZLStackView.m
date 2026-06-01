@@ -12,6 +12,12 @@
 #import "ZLConstraintItem.h"
 #import "ZLLayout.h"
 
+@interface ZLFlexItem()
+- (void)setSpacingWithoutUpdate:(CGFloat)spacing;
+- (void)setMinSpacingWithoutUpdate:(CGFloat)minSpacing;
+- (void)setMaxSpacingWithoutUpdate:(CGFloat)maxSpacing;
+@end
+
 @implementation ZLScrollView
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -182,7 +188,7 @@
     if (![arrangedSubview isKindOfClass:UIView.class]) return;
     ZLFlexItem *viewCfg = arrangedSubview.zl_flex;
     if (viewCfg.spacing == spacing) return;
-    viewCfg.spacing = spacing;
+    [viewCfg setSpacingWithoutUpdate:spacing];
     if (arrangedSubview.hidden) return;
     if (self.layoutManager.constraints.count == 0) return;
     NSArray<NSLayoutConstraint *> * arr = [self filterConstraintWithBlock:^BOOL(NSLayoutConstraint *constraint) {
@@ -201,7 +207,7 @@
     if (![arrangedSubview isKindOfClass:UIView.class]) return;
     ZLFlexItem *viewCfg = arrangedSubview.zl_flex;
     if (viewCfg.minSpacing == minSpacing) return;
-    viewCfg.minSpacing = minSpacing;
+    [viewCfg setMinSpacingWithoutUpdate:minSpacing];
     if (arrangedSubview.hidden) return;
     if (self.layoutManager.constraints.count == 0) return;
     NSArray<NSLayoutConstraint *> * arr = [self filterConstraintWithBlock:^BOOL(NSLayoutConstraint *constraint) {
@@ -222,7 +228,8 @@
     if (![arrangedSubview isKindOfClass:UIView.class]) return;
     ZLFlexItem *viewCfg = arrangedSubview.zl_flex;
     if (viewCfg.maxSpacing == maxSpacing) return;
-    viewCfg.maxSpacing = maxSpacing;
+    [viewCfg setMaxSpacingWithoutUpdate:maxSpacing];
+    
     if (arrangedSubview.hidden) return;
     if (self.layoutManager.constraints.count == 0) return;
     NSArray<NSLayoutConstraint *> * arr = [self filterConstraintWithBlock:^BOOL(NSLayoutConstraint *constraint) {

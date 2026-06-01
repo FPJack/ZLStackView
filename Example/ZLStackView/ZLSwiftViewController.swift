@@ -93,7 +93,7 @@ class ZLSwiftViewController: UIViewController {
         label.text = "kdkdkd"
         label.setContentHuggingPriority(.fittingSizeLevel - 1, for: .vertical)
         label.setContentCompressionResistancePriority(.fittingSizeLevel  - 1, for: .vertical)
-        StackView{
+        VStackView{
             UISwitch()
             20
             UISwitch()

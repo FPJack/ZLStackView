@@ -205,20 +205,25 @@ public struct StackViewBuilder {
     }
 }
 open class StackView: ZLStackView {
+    ///打开DSL构建会报错
     public override init(frame: CGRect) {
         super.init(frame: frame)
+    }
+    init() {
+        super.init(frame: .zero)
     }
     public init(@StackViewBuilder builder: () -> [StackViewDSL]) {
         super.init(frame: .zero)
         addViews(with: builder)
     }
-   @discardableResult
-   public func callAsFunction(
-           @StackViewBuilder builder: () -> [StackViewDSL]
-       ) -> Self {
-           addViews(with: builder)
-           return self
-   }
+    
+//   @discardableResult
+//   public func callAsFunction(
+//           @StackViewBuilder builder: () -> [StackViewDSL]
+//       ) -> Self {
+//           addViews(with: builder)
+//           return self
+//   }
     @discardableResult
     public func addViews(
             @StackViewBuilder builder: () -> [StackViewDSL]
@@ -799,12 +804,36 @@ open class VStackView: StackView {
     open override class func horizontal() -> Self {
         super.horizontal()
     }
-    
     @available(*, unavailable)
     open override var axis: ZLStackViewAxis {
-         get { .horizontal }
+         get { .vertical }
          set { super.axis = newValue}
-     }
+    }
+    @available(*, unavailable)
+    open override class func vertical() -> Self {
+        super.vertical()
+    }
+    override init() {
+        super.init()
+    }
+    public override init(frame: CGRect) {
+        super.init()
+    }
+    public override init(@StackViewBuilder builder: () -> [any StackViewDSL]) {
+        super.init(builder: builder)
+    }
+    @MainActor required public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+//    @discardableResult
+//    public func callAsFunction(
+//               @StackViewBuilder builder: () -> [StackViewDSL]
+//           ) -> Self {
+//               addViews(with: builder)
+//               return self
+//    }
+    
 }
 
 open class HStackView: StackView {
@@ -813,19 +842,36 @@ open class HStackView: StackView {
     open override class func vertical() -> Self {
         super.vertical()
     }
+    @available(*, unavailable)
+    open override class func horizontal() -> Self {
+        super.horizontal()
+    }
     
     @available(*, unavailable)
     open override var axis: ZLStackViewAxis {
          get { .horizontal }
          set { super.axis = newValue}
      }
+    override init() {
+        super.init()
+    }
+    public override init(frame: CGRect) {
+        super.init()
+    }
+    public override init(@StackViewBuilder builder: () -> [any StackViewDSL]) {
+        super.init(builder: builder)
+    }
+    
+    @MainActor required public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+//    @discardableResult
+//    public func callAsFunction(
+//               @StackViewBuilder builder: () -> [StackViewDSL]
+//           ) -> Self {
+//               addViews(with: builder)
+//               return self
+//    }
 }
-
-//public var VStackView: StackView {
-//    return StackView.vertical()
-//}
-//public var HStackView: StackView {
-//    return StackView.horizontal()
-//}
 
 

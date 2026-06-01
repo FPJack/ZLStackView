@@ -43,10 +43,31 @@
     _spacing = spacing;
     [self setStackViewNeedsUpdateConstraints];
 }
+///不出发set方法复制spcing
+- (void)setSpacingWithoutUpdate:(CGFloat)spacing {
+    _spacing = spacing;
+}
 - (CGFloat)spacing {
     if (_spacing > 0) return _spacing;
     return self.stackView.spacing;
 }
+- (void)setMinSpacing:(CGFloat)minSpacing {
+    if (minSpacing == _minSpacing) return;
+    [self.stackView setCustomMinSpacing:minSpacing afterView:self.view];
+    _minSpacing = minSpacing;
+}
+- (void)setMinSpacingWithoutUpdate:(CGFloat)minSpacing {
+    _minSpacing = minSpacing;
+}
+- (void)setMaxSpacing:(CGFloat)maxSpacing {
+    if (maxSpacing == _maxSpacing) return;
+    [self.stackView setCustomMaxSpacing:maxSpacing afterView:self.view];
+    _maxSpacing = maxSpacing;
+}
+- (void)setMaxSpacingWithoutUpdate:(CGFloat)maxSpacing {
+    _maxSpacing = maxSpacing;
+}
+
 - (NSArray<NSLayoutConstraint *> *)filterConstraintWithBlock:(BOOL(^)(NSLayoutConstraint *constraint))block {
     if (!self.stackView) return nil;
     ZLFlexManager *manager = [self.stackView valueForKey:@"layoutManager"];
