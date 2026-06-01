@@ -3,16 +3,16 @@
   "version": "0.1.0",
   "summary": "A short description of ZLStackView.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/fanpeng/ZLStackView",
+  "homepage": "https://github.com/FPJack/ZLStackView.git",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "fanpeng": "peng.fan@ukelink.com"
+    "fanpeng": "2551412939@qq.com"
   },
   "source": {
-    "git": "https://github.com/fanpeng/ZLStackView.git",
+    "git": "https://github.com/FPJack/ZLStackView.git",
     "tag": "0.1.0"
   },
   "platforms": {

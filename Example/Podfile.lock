@@ -29,7 +29,7 @@ SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
-  ZLStackView: ad0408e325cc6b57d9443fdec94bc38d2547ff9b
+  ZLStackView: a58a8afe50cdd6033d93fedf5ffddcd6de54810d
 
 PODFILE CHECKSUM: 8f65efe986a8bafa78ee0c88f9ec9fe380c06d21
 
