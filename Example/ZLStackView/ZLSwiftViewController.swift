@@ -114,8 +114,6 @@ class ZLSwiftViewController: UIViewController {
 
             testView.flex.square(28).align(.center)
         }
-        .horizontal()
-        .spacing(4)
         .inset(8, 12, 8, 12)
         .bgColor(UIColor(white: 0.95, alpha: 1))
         .corner(8)

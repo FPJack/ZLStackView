@@ -27,52 +27,13 @@
     [super viewDidLoad];
     self.title = @"ZLUIKitPlus Demos";
     self.view.backgroundColor = UIColor.whiteColor;
-    {
-        UIStackView *stack = UIStackView.new;
-//        stack.axis = UILayoutConstraintAxisVertical;
-//        [self.view addSubview:stack];
-//        stack.backgroundColor = UIColor.lightGrayColor;
-//        stack.zl_layout.width(200);
-//        stack.zl_layout.center();
-        
-        UILabel *lab1 = UILabel.new;
-        lab1.text = @"Hello";
-        [stack addArrangedSubview:lab1];
-        
-        UIButton *btn = UIButton.new;
-        [btn setTitle:@"World" forState:UIControlStateNormal];
-        [stack addArrangedSubview:btn];
-        
-        UIImageView *imgView = UIImageView.new;
-        imgView.image = [UIImage systemImageNamed:@"star"];
-        [stack addArrangedSubview:imgView];
-        
-        UITextField *textField = UITextField.new;
-        textField.placeholder = @"Input";
-        textField.text = @"ZLUIKitPlus";
-        [stack addArrangedSubview:textField];
-        
-        UISwitch *switchView = UISwitch.new;
-        switchView.on = YES;
-        [stack addArrangedSubview:switchView];
-        
-        UITextView *textView = UITextView.new;
-        textView.text = @"This is a UITextView.";
-        [stack addArrangedSubview:textView];
-        
-    }
-    
-//    return;
-    
     self.demos = @[
-        @{@"title": @"ZLStackView Demo",   @"class": ZLStackViewDemoVC.class},
+        @{@"title": @"⚡ ZLStackView Demo",   @"class": ZLStackViewDemoVC.class},
+        @{@"title": @"⚡ ZLStackView swift DSL布局",        @"class": ZLSwiftViewController.class},
         @{@"title": @"⚡ UIStackView 性能测试",  @"class": UIStackViewBenchmarkVC.class},
         @{@"title": @"⚡ ZLStackView 性能测试",  @"class": ZLStackViewBenchmarkVC.class},
         @{@"title": @"⚡ Masonry 性能测试",       @"class": MasonryBenchmarkVC.class},
         @{@"title": @"⚡ Frame 性能测试",        @"class": FrameBenchmarkVC.class},
-        @{@"title": @"⚡ Frame 性能测试",        @"class": FrameBenchmarkVC.class},
-        @{@"title": @"⚡ swift",        @"class": ZLSwiftViewController.class},
-
     ];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
@@ -81,12 +42,6 @@
     [tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"cell"];
     [self.view addSubview:tableView];
     tableView.zl_layout.edgesZero();
-    
-    NSLog(@"%p",self.view.topAnchor);
-    NSLog(@"%p",self.view.topAnchor);
-    NSLog(@"%p",self.view.topAnchor);
-    
-    NSString *addressStr = [NSString stringWithFormat:@"%p", self.view.topAnchor];
 
     
 }
