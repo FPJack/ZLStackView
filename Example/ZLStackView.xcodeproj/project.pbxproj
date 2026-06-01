@@ -84,7 +84,7 @@
 		8486E5EE2FC7E5CA00025243 /* ZLStackView_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZLStackView_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		8486E5EF2FC7E5CA00025243 /* ZLSwiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLSwiftViewController.swift; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8F3C2FC62FF87271E6248877 /* ZLStackView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ZLStackView.podspec; path = ../ZLStackView.podspec; sourceTree = "<group>"; };
+		8F3C2FC62FF87271E6248877 /* ZLStackView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ZLStackView.podspec; path = ../ZLStackView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

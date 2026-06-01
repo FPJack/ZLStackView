@@ -1,9 +1,5 @@
 # ZLStackView
 
-[![CI Status](https://img.shields.io/travis/fanpeng/ZLStackView.svg?style=flat)](https://travis-ci.org/fanpeng/ZLStackView)
-[![Version](https://img.shields.io/cocoapods/v/ZLStackView.svg?style=flat)](https://cocoapods.org/pods/ZLStackView)
-[![License](https://img.shields.io/cocoapods/l/ZLStackView.svg?style=flat)](https://cocoapods.org/pods/ZLStackView)
-[![Platform](https://img.shields.io/cocoapods/p/ZLStackView.svg?style=flat)](https://cocoapods.org/pods/ZLStackView)
 
 > 一个基于 AutoLayout 的高性能、强 DSL、API 友好的 **StackView** 替代方案。同时提供 **Objective-C 链式 API** 与 **Swift `@resultBuilder` DSL**，弥补 `UIStackView` 的能力短板（弹性间距、min/max spacing、按 view 单独配置 align/flex、嵌套 ScrollView 自适应等），并且通过纯 AutoLayout 一次性构建约束，避免 `UIStackView` 在动态布局时的多次回流。
 
@@ -528,7 +524,7 @@ A：podspec 限制 iOS 10+，因为大量使用了 layout anchor / safeArea 等 
 
 ## 作者
 
-**fanpeng** · peng.fan@ukelink.com
+**fanpeng** · 2551412939@qq.com
 
 欢迎提 issue / PR。
 
