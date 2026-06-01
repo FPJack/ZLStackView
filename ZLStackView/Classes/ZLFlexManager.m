@@ -183,20 +183,15 @@
                 
             {
                 if (i == count - 1) break;
-                if (cfg.spacing > 0 || cfg.minSpacing > 0 || cfg.maxSpacing > 0) {
+                if (cfg.spacing >= 0 || cfg.minSpacing >= 0 || cfg.maxSpacing >= 0) {
                     ZLLayoutGuide *spacingGuide = ZLLayoutGuide.new;
                     spacingGuide.stackView = self.stackView;
                     cons = [spacingGuide.leadingAnchor constraintEqualToAnchor:nextAnchor];
                     [self.constraints addObject:cons];
                     nextAnchor = spacingGuide.trailingAnchor;
 
-                    if (cfg.spacing) {
-                        cons = [spacingGuide.widthAnchor constraintEqualToConstant:spacing];
-                        cons.item.type = ZLLayoutConTypeSpacing;
-                        cons.item.view = view;
-                        [self.constraints addObject:cons];
-                    }
-                    if (cfg.minSpacing) {
+                    BOOL spcingFlag = YES;
+                    if (cfg.minSpacing >= 0) {
                         cons = [spacingGuide.widthAnchor constraintGreaterThanOrEqualToConstant:cfg.minSpacing];
                         cons.item.type = ZLLayoutConTypeMinSpacing;
                         cons.item.view = view;
@@ -208,10 +203,23 @@
                         cons.item.view = view;
                         cons.priority = UILayoutPriorityDefaultLow;
                         [self.constraints addObject:cons];
+                        if (cfg.spacing < cfg.minSpacing) {
+                            spcingFlag = NO;
+                        }
                     }
-                    if (cfg.maxSpacing) {
+                    if (cfg.maxSpacing >= 0) {
                         cons = [spacingGuide.widthAnchor constraintLessThanOrEqualToConstant:cfg.maxSpacing];
                         cons.item.type = ZLLayoutConTypeMaxSpacing;
+                        cons.item.view = view;
+                        [self.constraints addObject:cons];
+                        if (cfg.spacing > cfg.maxSpacing) {
+                            spcingFlag = NO;
+                        }
+                    }
+                    
+                    if (spcingFlag && cfg.spacing >= 0) {
+                        cons = [spacingGuide.widthAnchor constraintEqualToConstant:spacing];
+                        cons.item.type = ZLLayoutConTypeSpacing;
                         cons.item.view = view;
                         [self.constraints addObject:cons];
                     }
@@ -415,21 +423,18 @@
             case ZLJustifyCenter:
             {
                 if (i == count - 1) break;
-                if (cfg.spacing > 0 ||
-                    cfg.minSpacing > 0 ||
-                    cfg.maxSpacing > 0) {
+                if (cfg.spacing >= 0 ||
+                    cfg.minSpacing >= 0 ||
+                    cfg.maxSpacing >= 0) {
                     ZLLayoutGuide *spacingGuide = ZLLayoutGuide.new;
                     spacingGuide.stackView = self.stackView;
                     cons = [spacingGuide.topAnchor constraintEqualToAnchor:nextAnchor];
                     [self.constraints addObject:cons];
                     nextAnchor = spacingGuide.bottomAnchor;
 
-                    if (cfg.spacing) {
-                        cons = [spacingGuide.heightAnchor constraintEqualToConstant:spacing];
-                        cons.item.type = ZLLayoutConTypeSpacing;
-                        [self.constraints addObject:cons];
-                    }
-                    if (cfg.minSpacing) {
+                    
+                    BOOL spcingFlag = YES;
+                    if (cfg.minSpacing >= 0) {
                         cons = [spacingGuide.heightAnchor constraintGreaterThanOrEqualToConstant:cfg.minSpacing];
                         cons.item.type = ZLLayoutConTypeMinSpacing;
                         cons.item.view = view;
@@ -442,14 +447,26 @@
                         cons.item.type = ZLLayoutConTypeMinSpacing;
                         cons.item.view = view;
                         [self.constraints addObject:cons];
+                        if (cfg.spacing < cfg.minSpacing) {
+                            spcingFlag = NO;
+                        }
                     }
-                    if (cfg.maxSpacing) {
+                    if (cfg.maxSpacing >= 0) {
                         cons = [spacingGuide.heightAnchor constraintLessThanOrEqualToConstant:cfg.maxSpacing];
                         cons.item.type = ZLLayoutConTypeMaxSpacing;
                         cons.item.view = view;
                         [self.constraints addObject:cons];
+                        if (cfg.spacing > cfg.maxSpacing) {
+                            spcingFlag = NO;
+                        }
                     }
                     
+                    if (spcingFlag && cfg.spacing >= 0) {
+                        cons = [spacingGuide.heightAnchor constraintEqualToConstant:spacing];
+                        cons.item.type = ZLLayoutConTypeSpacing;
+                        cons.item.view = view;
+                        [self.constraints addObject:cons];
+                    }
                 }
             }
                 break;

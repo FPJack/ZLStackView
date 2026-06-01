@@ -25,6 +25,17 @@
 @implementation ZLFlexItem
 @synthesize alignSelf = _alignSelf;
 @synthesize spacing = _spacing;
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _minSpacing = -2;
+        _maxSpacing = -2;
+        _startSpacing = 0;
+        _endSpacing = 0;
+    }
+    return self;
+}
 - (void)setAlignSelf:(ZLAlign)alignSelf {
     self.isSetAlign = YES;
     if (alignSelf == _alignSelf) return;
@@ -284,7 +295,13 @@
         return self;
     };
 }
-
+- (ZLFlexItem * _Nonnull (^)(CGFloat))square {
+    return ^(CGFloat s) {
+        self.width = s;
+        self.height = s;
+        return self;
+    };
+}
 - (ZLFlexItem * _Nonnull (^)(CGFloat))minW {
     return ^(CGFloat w) {
         self.minWidth = w;

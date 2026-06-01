@@ -58,6 +58,7 @@
         self.markedDirty = YES;
         ///消除staview 宽度为0的时候 设置了内边距控制台报约束警告的问题
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        _spacing = -1;
 //        self.translatesAutoresizingMaskIntoConstraints = NO;
         self.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
     }
