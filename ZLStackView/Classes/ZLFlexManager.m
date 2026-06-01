@@ -201,7 +201,7 @@
                         cons = [spacingGuide.widthAnchor constraintEqualToConstant:cfg.minSpacing];
                         cons.item.type = ZLLayoutConTypeMinSpacing;
                         cons.item.view = view;
-                        cons.priority = UILayoutPriorityDefaultLow;
+                        cons.priority = UILayoutPriorityFittingSizeLevel;
                         [self.constraints addObject:cons];
                         if (cfg.spacing < cfg.minSpacing) {
                             spcingFlag = NO;
@@ -212,6 +212,15 @@
                         cons.item.type = ZLLayoutConTypeMaxSpacing;
                         cons.item.view = view;
                         [self.constraints addObject:cons];
+                        
+                        
+                        cons = [spacingGuide.widthAnchor constraintEqualToConstant:0];
+                        cons.item.type = ZLLayoutConTypeMaxSpacing;
+                        cons.item.view = view;
+                        cons.priority = UILayoutPriorityFittingSizeLevel;
+                        [self.constraints addObject:cons];
+                        
+                        
                         if (cfg.spacing > cfg.maxSpacing) {
                             spcingFlag = NO;
                         }
@@ -443,7 +452,8 @@
                         
                         ///优先展示最小高度
                         cons = [spacingGuide.heightAnchor constraintEqualToConstant:cfg.minSpacing];
-                        cons.priority = UILayoutPriorityDefaultLow;
+                        cons.priority = UILayoutPriorityFittingSizeLevel;
+
                         cons.item.type = ZLLayoutConTypeMinSpacing;
                         cons.item.view = view;
                         [self.constraints addObject:cons];
@@ -456,6 +466,14 @@
                         cons.item.type = ZLLayoutConTypeMaxSpacing;
                         cons.item.view = view;
                         [self.constraints addObject:cons];
+                        
+                        cons = [spacingGuide.heightAnchor constraintEqualToConstant:0];
+                        cons.item.type = ZLLayoutConTypeMaxSpacing;
+                        cons.item.view = view;
+                        cons.priority = UILayoutPriorityFittingSizeLevel;
+                        [self.constraints addObject:cons];
+                        
+                        
                         if (cfg.spacing > cfg.maxSpacing) {
                             spcingFlag = NO;
                         }
