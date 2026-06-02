@@ -69,6 +69,16 @@
     for (int i = 0; i < count; i ++) {
         UIView *view = self.views[i];
         view.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        ///垂直方向设置一个优先级较低的宽度约束，保证在没有其他宽度约束时，view的宽度为0，避免过度压缩导致的布局异常
+        if (CGSizeEqualToSize(view.intrinsicContentSize, CGSizeMake(UIViewNoIntrinsicMetric, UIViewNoIntrinsicMetric))) {
+            cons = [view.heightAnchor constraintEqualToConstant:0];
+            cons.priority = UILayoutPriorityFittingSizeLevel / 2.0;
+            [self.constraints addObject:cons];
+        }
+       
+        
+        
         ZLFlexItem *cfg = view.zl_flex;
         if (cfg.flexValue > 0 && self.justify != ZLJustifyFillEqually) {
             [flexViews addObject:view];
@@ -321,6 +331,15 @@
     for (int i = 0; i < count; i ++) {
         UIView *view = self.views[i];
         view.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        ///水平方向设置一个优先级较低的宽度约束，保证在没有其他宽度约束时，view的宽度为0，避免过度压缩导致的布局异常
+        if (CGSizeEqualToSize(view.intrinsicContentSize, CGSizeMake(UIViewNoIntrinsicMetric, UIViewNoIntrinsicMetric))) {
+            cons = [view.widthAnchor constraintEqualToConstant:0];
+            cons.priority = UILayoutPriorityFittingSizeLevel / 2.0;
+            [self.constraints addObject:cons];
+        }
+       
+        
         ZLFlexItem *cfg = view.zl_flex;
         if (cfg.flexValue > 0 && self.justify != ZLJustifyFillEqually) {
             [flexViews addObject:view];
