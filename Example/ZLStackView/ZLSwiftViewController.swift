@@ -100,19 +100,22 @@ class ZLSwiftViewController: UIViewController {
 
             20.minSpacing
 
-            testView.flex.flex(1).align(.fill)
+//            testView.flex.flex(1).align(.fill)
                 
             5
             
-            testView.flex.flex(2).align(.fill)
+//            testView.flex.flex(2).align(.fill)
 
             5
             
             testView.flex.align(.end)
 
-            Spacer()
+//            Spacer()
 
             testView.flex.square(28).align(.center)
+            UISwitch()
+            UISwitch()
+            UISwitch()
         }
         .inset(8, 12, 8, 12)
         .bgColor(UIColor(white: 0.95, alpha: 1))
@@ -123,6 +126,26 @@ class ZLSwiftViewController: UIViewController {
         .leading(16)
         .trailing(-16)
         .top(450)
+        
+        
+        
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        let label = UILabel()
+        label.text = "UIStackView"
+        label.textAlignment = .center
+        stackView.addArrangedSubview(label)
+//        stackView.addArrangedSubview(UISwitch())
+//        stackView.addArrangedSubview(UISwitch())
+//        stackView.addArrangedSubview(UISwitch())
+        stackView.addArrangedSubview(UIView())
+//        stackView.addArrangedSubview(UISwitch())
+        stackView.frame = CGRect(x: 16, y: 550, width: view.bounds.width - 32, height: 80)
+        stackView.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        stackView.layer.cornerRadius = 8
+        stackView.layer.borderWidth = 1
+        view.addSubview(stackView)
 
      
     }

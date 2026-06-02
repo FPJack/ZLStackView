@@ -76,8 +76,16 @@ static double zbMemMB(void) {
     for (NSInteger i = 0; i < kOuter; i++) {
         ZLStackView *col = ZLStackView.vertical.justifyFillEqually.alignFill.space(4);
         for (NSInteger j = 0; j < kMiddle; j++) {
-            ZLStackView *row = ZLStackView.horizontal.justifyFillEqually.alignFill.space(2)
-                .border(0.5, @"#DDDDDD").corner(4).masksToBounds(YES).height(10);
+            ZLStackView *row = ZLStackView
+                .horizontal
+                .justifyFillEqually
+                .alignFill
+                .space(2)
+                .border(0.5, @"#DDDDDD")
+                .corner(4)
+                .masksToBounds(YES)
+                .height(10)
+            ;
             for (NSInteger k = 0; k < kInner; k++) {
                 CGFloat hue = (i * kMiddle * kInner + j * kInner + k)
                               / (CGFloat)(kOuter * kMiddle * kInner);
