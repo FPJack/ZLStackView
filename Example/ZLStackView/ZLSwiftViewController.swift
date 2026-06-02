@@ -48,17 +48,12 @@ class ZLSwiftViewController: UIViewController {
             
             5
 
-            testView.flex.minHeight(30)
-
-            10
-
             testView.flex.flex(1).align(.fill).minHeight(20)
             
             20.minSpacing
 
             testView.flex.flex(2).align(.fill)
             
-            10.minSpacing
             50.maxSpacing
             
             testView.flex.size(180, 24).align(.start).startSpacing(20)
@@ -113,9 +108,7 @@ class ZLSwiftViewController: UIViewController {
 //            Spacer()
 
             testView.flex.square(28).align(.center)
-            UISwitch()
-            UISwitch()
-            UISwitch()
+           
         }
         .inset(8, 12, 8, 12)
         .bgColor(UIColor(white: 0.95, alpha: 1))

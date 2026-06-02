@@ -211,7 +211,7 @@
                         cons = [spacingGuide.widthAnchor constraintEqualToConstant:cfg.minSpacing];
                         cons.item.type = ZLLayoutConTypeMinSpacing;
                         cons.item.view = view;
-                        cons.priority = UILayoutPriorityFittingSizeLevel;
+                        cons.priority = UILayoutPriorityFittingSizeLevel / 2.0;
                         [self.constraints addObject:cons];
                         if (cfg.spacing < cfg.minSpacing) {
                             spcingFlag = NO;
@@ -227,7 +227,7 @@
                         cons = [spacingGuide.widthAnchor constraintEqualToConstant:0];
                         cons.item.type = ZLLayoutConTypeMaxSpacing;
                         cons.item.view = view;
-                        cons.priority = UILayoutPriorityFittingSizeLevel;
+                        cons.priority = UILayoutPriorityFittingSizeLevel / 2.0;
                         [self.constraints addObject:cons];
                         
                         
@@ -471,7 +471,7 @@
                         
                         ///优先展示最小高度
                         cons = [spacingGuide.heightAnchor constraintEqualToConstant:cfg.minSpacing];
-                        cons.priority = UILayoutPriorityFittingSizeLevel;
+                        cons.priority = UILayoutPriorityFittingSizeLevel / 2.0;
 
                         cons.item.type = ZLLayoutConTypeMinSpacing;
                         cons.item.view = view;
@@ -489,7 +489,7 @@
                         cons = [spacingGuide.heightAnchor constraintEqualToConstant:0];
                         cons.item.type = ZLLayoutConTypeMaxSpacing;
                         cons.item.view = view;
-                        cons.priority = UILayoutPriorityFittingSizeLevel;
+                        cons.priority = UILayoutPriorityFittingSizeLevel / 2.0;
                         [self.constraints addObject:cons];
                         
                         
