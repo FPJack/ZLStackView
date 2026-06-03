@@ -115,6 +115,51 @@
         return self;
     };
 }
+- (instancetype)then:(void (^)(id pairView))then {
+    return self.then(then);
+}
+- (instancetype)thenFirst:(void(^)(id first))thenFirst {
+    return self.thenFirst(thenFirst);
+}
+- (instancetype)thenSecond:(void(^)(id second))thenSecond {
+    return self.thenSecond(thenSecond);
+}
+- (instancetype)minSpacing:(CGFloat)spacing {
+    self.first.zl_flex.minSpacing = spacing;
+    return self;
+}
+- (instancetype)maxSpacing:(CGFloat)spacing {
+    self.first.zl_flex.maxSpacing = spacing;
+    return self;
+}
+- (instancetype)flexSpace:(BOOL)flexible {
+    self.first.zl_flex.isFlexSpace = flexible;
+    return self;
+}
+- (instancetype)firstStartSpacing:(CGFloat)spacing {
+    self.first.zl_flex.startSpacing = spacing;
+    return self;
+}
+- (instancetype)firstEndSpacing:(CGFloat)spacing {
+    self.first.zl_flex.endSpacing = spacing;
+    return self;
+}
+- (instancetype)secondStartSpacing:(CGFloat)spacing {
+    self.second.zl_flex.startSpacing = spacing;
+    return self;
+}
+- (instancetype)secondEndSpacing:(CGFloat)spacing {
+    self.second.zl_flex.endSpacing = spacing;
+    return self;
+}
+- (instancetype)firstFlex:(NSInteger)flex {
+    self.first.zl_flex.flexValue = flex;
+    return self;
+}
+- (instancetype)secondFlex:(NSInteger)flex {
+    self.second.zl_flex.flexValue = flex;
+    return self;
+}
 @end
 
 @implementation ZLPairLabelView
