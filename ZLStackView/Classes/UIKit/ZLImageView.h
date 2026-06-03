@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)aspectFit;
 
 @property (readonly) ZLImageView* (^corner)(CGFloat radius);
+
 @property (readonly) ZLImageView* (^corners)(CACornerMask corners);
 
 @property (readonly) ZLImageView* (^circle)(BOOL isCircel);

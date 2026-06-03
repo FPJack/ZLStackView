@@ -233,9 +233,9 @@ open class Button: ZLButton {
     
     @discardableResult
     public func title(_ title: String?,
+                      color: Any? = nil,
                       fontSize: Float? = nil,
                       weight: UIFont.Weight = .regular,
-                      color: Any? = nil,
                       lines: Int? = nil,
                       maxWidth: Float? = nil) -> Self {
         setTitle(title, for: .normal)
@@ -566,40 +566,28 @@ open class Button: ZLButton {
     }
     
     @discardableResult
-    public func size(width: Float? = nil, height: Float? = nil) -> Self {
-        if let width = width {
+    public func size(w: Float? = nil, h: Float? = nil) -> Self {
+        if let width = w {
             _ = super.width(CGFloat(width))
         }
-        if let height = height {
+        if let height = h {
             _ = super.height(CGFloat(height))
         }
         return self
     }
 }
 
-open class VButton: Button {
-    @available(*, unavailable)
-    public override func axis(_ axis: ZLButtonAxis) -> Self {
-         return self
-    }
-    open override var axis: ZLButtonAxis {
-        get {
-            .vertical
-        }
-        set {}
-    }
+public var VButton: Button {
+    let button = Button()
+    button.axis = .vertical
+    return button
 }
-open class HButton: Button {
-    @available(*, unavailable)
-    public override func axis(_ axis: ZLButtonAxis) -> Self {
-         return self
-    }
-    open override var axis: ZLButtonAxis {
-        get {
-            .horizontal
-        }
-        set {}
-    }
+
+public var HButton: Button {
+    let button = Button()
+    button.axis = .horizontal
+    return button
 }
+
 
 
