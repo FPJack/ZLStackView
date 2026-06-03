@@ -32,6 +32,26 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'ZLStackView/Classes/**/*'
   
+  s.subspec 'Layout' do |layout|
+    layout.source_files = 'ZLStackView/Classes/Layout/**/*'
+  end
+  
+  s.subspec 'StackView' do |stackView|
+    stackView.source_files = 'ZLStackView/Classes/StackView/**/*'
+    stackView.dependency 'ZLStackView/Layout'
+  end
+  
+  s.subspec 'UIKit' do |core|
+    core.source_files = 'ZLStackView/Classes/UIKit/**/*'
+    core.dependency 'ZLStackView/StackView'
+  end
+  
+  
+  s.subspec 'Swift' do |core|
+    core.source_files = 'ZLStackView/Classes/Swift/**/*'
+    core.dependency 'ZLStackView/UIKit'
+  end
+  
   # s.resource_bundles = {
   #   'ZLStackView' => ['ZLStackView/Assets/*.png']
   # }

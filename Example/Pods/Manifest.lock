@@ -6,7 +6,18 @@ PODS:
     - FBSnapshotTestCase/Core
   - Masonry (1.1.0)
   - SnapKit (5.7.1)
-  - ZLStackView (0.1.0)
+  - ZLStackView (0.1.0):
+    - ZLStackView/Layout (= 0.1.0)
+    - ZLStackView/StackView (= 0.1.0)
+    - ZLStackView/Swift (= 0.1.0)
+    - ZLStackView/UIKit (= 0.1.0)
+  - ZLStackView/Layout (0.1.0)
+  - ZLStackView/StackView (0.1.0):
+    - ZLStackView/Layout
+  - ZLStackView/Swift (0.1.0):
+    - ZLStackView/UIKit
+  - ZLStackView/UIKit (0.1.0):
+    - ZLStackView/StackView
 
 DEPENDENCIES:
   - FBSnapshotTestCase
@@ -29,7 +40,7 @@ SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
-  ZLStackView: a58a8afe50cdd6033d93fedf5ffddcd6de54810d
+  ZLStackView: 2e1249b079f4d414f656288acb9afd6f680865eb
 
 PODFILE CHECKSUM: 8f65efe986a8bafa78ee0c88f9ec9fe380c06d21
 

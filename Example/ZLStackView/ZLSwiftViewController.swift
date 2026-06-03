@@ -139,8 +139,34 @@ class ZLSwiftViewController: UIViewController {
         stackView.layer.cornerRadius = 8
         stackView.layer.borderWidth = 1
         view.addSubview(stackView)
-
-     
+        
+        
+        Button.vertical()
+            .axis(.horizontal)
+            .order(.imageFirst)
+            .vertical(align: .center)
+            .horizontal(align: .center)
+            .imageTouchOnly(true)
+            .touchAreaEdge(0, 0, 0, 0)
+            .debounce(2)
+            .spacing(3)
+            .flexibleSpacing(true)
+            .insets(0, 0, 0, 0)
+            .titSize(10, 10)
+            .imageSize(10, 10)
+        
+            .title("", fontSize: 2, color: "")
+            .title("",fontSize: 2,weight: .bold, color: "",lines: 0,maxWidth: 19)
+            .activeStyle { button in
+                
+            }
+            .inactiveStyle { _ in
+                
+            }
+            .then { _ in
+                
+            }
+        
     }
 }
 

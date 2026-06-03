@@ -94,8 +94,8 @@ typedef NS_ENUM(NSInteger, ZLAttr) {
 
 @property (nonatomic,weak)UIView *view;
 
-
 @property (readonly)  ZLLayout* (^centerX)(CGFloat x);
+
 @property (readonly)  ZLLayout* (^centerXTo)(NSLayoutXAxisAnchor *anchor, CGFloat offset);
 @property (readonly)  ZLLayout* (^centerXGreaterThanOrTo)(NSLayoutXAxisAnchor *anchor, CGFloat offset);
 @property (readonly)  ZLLayout* (^centerXLessThanOrTo)(NSLayoutXAxisAnchor *anchor, CGFloat offset);
