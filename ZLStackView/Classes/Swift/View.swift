@@ -286,21 +286,6 @@ open class WrapperView: ZLWrapperView {
 
 private var storageKey: UInt8 = 0
 public extension UIView {
-    struct ZLViewFactory<Base: UIView> {
-        let base: Base
-        func get<T: CreatableView>(
-            _ type: T.Type,
-            key: String
-        ) -> T {
-            if let v = base.zl_storage[key] as? T {
-                return v
-            }
-            let v = T()
-            base.zl_storage[key] = v
-            return v
-        }
-    }
-    
     private var zl_storage: NSMutableDictionary {
             if let dict = objc_getAssociatedObject(self, &storageKey) as? NSMutableDictionary {
                 return dict
@@ -314,108 +299,178 @@ public extension UIView {
             )
             return dict
         }
-    
-  
+
     
     
     var zl_btn: Button {
-        ZLViewFactory(base: self).get(Button.self, key: #function)
+        let key = #function
+        if let view = zl_storage[key] as? Button {return view}
+        let view = Button()
+        zl_storage[key] = view
+        return view
     }
-    
     var zl_lab: Label {
-        ZLViewFactory(base: self).get(Label.self, key: #function)
+        let key = #function
+        if let view = zl_storage[key] as? Label {
+            return view
+        }
+        let view = Label()
+        zl_storage[key] = view
+        return view
     }
     var zl_imgView: ImageView {
-        ZLViewFactory(base: self).get(ImageView.self, key: #function)
+        let key = #function
+        if let view = zl_storage[key] as? ImageView {return view}
+        let view = ImageView()
+        zl_storage[key] = view
+        return view
     }
     
     var zl_stackView: StackView {
-        ZLViewFactory(base: self).get(StackView.self, key: #function)
+        let key = #function
+        if let view = zl_storage[key] as? StackView {return view}
+        let view = StackView()
+        zl_storage[key] = view
+        return view
     }
     
     var zl_altBtn: Button {
-        ZLViewFactory(base: self).get(Button.self, key: #function)
-
+        let key = #function
+        if let view = zl_storage[key] as? Button {return view}
+        let view = Button()
+        zl_storage[key] = view
+        return view
     }
     var zl_altLab: Label {
-        ZLViewFactory(base: self).get(Label.self, key: #function)
-
+        let key = #function
+        if let view = zl_storage[key] as? Label {return view}
+        let view = Label()
+        zl_storage[key] = view
+        return view
     }
     var zl_altImgView: ImageView {
-        ZLViewFactory(base: self).get(ImageView.self, key: #function)
-
+        let key = #function
+        if let view = zl_storage[key] as? ImageView {return view}
+        let view = ImageView()
+        zl_storage[key] = view
+        return view
     }
     var zl_altStackView: StackView {
-        ZLViewFactory(base: self).get(StackView.self, key: #function)
-
+        let key = #function
+        if let view = zl_storage[key] as? StackView {return view}
+        let view = StackView()
+        zl_storage[key] = view
+        return view
     }
     
     var zl_extraBtn: Button {
-        ZLViewFactory(base: self).get(Button.self, key: #function)
-
+        let key = #function
+        if let view = zl_storage[key] as? Button {return view}
+        let view = Button()
+        zl_storage[key] = view
+        return view
     }
     var zl_extraLab: Label {
-        ZLViewFactory(base: self).get(Label.self, key: #function)
-
+        let key = #function
+        if let view = zl_storage[key] as? Label {return view}
+        let view = Label()
+        zl_storage[key] = view
+        return view
     }
     var zl_extraImgView: ImageView {
-        ZLViewFactory(base: self).get(ImageView.self, key: #function)
-
+        let key = #function
+        if let view = zl_storage[key] as? ImageView {return view}
+        let view = ImageView()
+        zl_storage[key] = view
+        return view
     }
     var zl_extraStackView: StackView {
-        ZLViewFactory(base: self).get(StackView.self, key: #function)
-
+        let key = #function
+        if let view = zl_storage[key] as? StackView {return view}
+        let view = StackView()
+        zl_storage[key] = view
+        return view
     }
     
     
     var zl_pairLab: PairLabelView {
-        ZLViewFactory(base: self).get(PairLabelView.self, key: #function)
-
+        let key = #function
+        if let view = zl_storage[key] as? PairLabelView {return view}
+        let view = PairLabelView()
+        zl_storage[key] = view
+        return view
     }
     
     var zl_pairImg: PairImageView {
-        ZLViewFactory(base: self).get(PairImageView.self, key: #function)
-
+        let key = #function
+        if let view = zl_storage[key] as? PairImageView {return view}
+        let view = PairImageView()
+        zl_storage[key] = view
+        return view
     }
     
     var zl_pairBtn: PairButtonView {
-        ZLViewFactory(base: self).get(PairButtonView.self, key: #function)
-
+        let key = #function
+        if let view = zl_storage[key] as? PairButtonView {return view}
+        let view = PairButtonView()
+        zl_storage[key] = view
+        return view
     }
     
     var zl_pairStackView: PairStackView {
-        ZLViewFactory(base: self).get(PairStackView.self, key: #function)
-
+        let key = #function
+        if let view = zl_storage[key] as? PairStackView {return view}
+        let view = PairStackView()
+        zl_storage[key] = view
+        return view
     }
     
     var zl_imgViewLab: ImgLabelView {
-        ZLViewFactory(base: self).get(ImgLabelView.self, key: #function)
-
+        let key = #function
+        if let view = zl_storage[key] as? ImgLabelView {return view}
+        let view = ImgLabelView()
+        zl_storage[key] = view
+        return view
     }
     
     var zl_imgViewBtn: ImgButtonView {
-        ZLViewFactory(base: self).get(ImgButtonView.self, key: #function)
-
+        let key = #function
+        if let view = zl_storage[key] as? ImgButtonView {return view}
+        let view = ImgButtonView()
+        zl_storage[key] = view
+        return view
     }
     
     var zl_btnImgView: ButtonImgView {
-        ZLViewFactory(base: self).get(ButtonImgView.self, key: #function)
-
+        let key = #function
+        if let view = zl_storage[key] as? ButtonImgView {return view}
+        let view = ButtonImgView()
+        zl_storage[key] = view
+        return view
     }
     
     var zl_btnLabel: ButtonLabView {
-        ZLViewFactory(base: self).get(ButtonLabView.self, key: #function)
-
+        let key = #function
+        if let view = zl_storage[key] as? ButtonLabView {return view}
+        let view = ButtonLabView()
+        zl_storage[key] = view
+        return view
     }
     
     var zl_labelBtn: LabButtonView {
-        ZLViewFactory(base: self).get(LabButtonView.self, key: #function)
-
+        let key = #function
+        if let view = zl_storage[key] as? LabButtonView {return view}
+        let view = LabButtonView()
+        zl_storage[key] = view
+        return view
     }
     
     var zl_labImgView: LabelImgView {
-        ZLViewFactory(base: self).get(LabelImgView.self, key: #function)
-
+        let key = #function
+        if let view = zl_storage[key] as? LabelImgView {return view}
+        let view = LabelImgView()
+        zl_storage[key] = view
+        return view
     }
     
     var zl_wrapView: WrapperView {
@@ -428,3 +483,147 @@ public extension UIView {
 }
 
 
+/*
+ public extension UIView {
+     struct ZLViewFactory<Base: UIView> {
+         let base: Base
+         func get<T: CreatableView>(
+             _ type: T.Type,
+             key: String
+         ) -> T {
+             if let v = base.zl_storage[key] as? T {
+                 return v
+             }
+             let v = T()
+             base.zl_storage[key] = v
+             return v
+         }
+     }
+     
+     private var zl_storage: NSMutableDictionary {
+             if let dict = objc_getAssociatedObject(self, &storageKey) as? NSMutableDictionary {
+                 return dict
+             }
+             let dict = NSMutableDictionary()
+             objc_setAssociatedObject(
+                 self,
+                 &storageKey,
+                 dict,
+                 .OBJC_ASSOCIATION_RETAIN_NONATOMIC
+             )
+             return dict
+         }
+     
+   
+     
+     
+     var zl_btn: Button {
+         ZLViewFactory(base: self).get(Button.self, key: #function)
+     }
+     
+     var zl_lab: Label {
+         ZLViewFactory(base: self).get(Label.self, key: #function)
+     }
+     var zl_imgView: ImageView {
+         ZLViewFactory(base: self).get(ImageView.self, key: #function)
+     }
+     
+     var zl_stackView: StackView {
+         ZLViewFactory(base: self).get(StackView.self, key: #function)
+     }
+     
+     var zl_altBtn: Button {
+         ZLViewFactory(base: self).get(Button.self, key: #function)
+
+     }
+     var zl_altLab: Label {
+         ZLViewFactory(base: self).get(Label.self, key: #function)
+
+     }
+     var zl_altImgView: ImageView {
+         ZLViewFactory(base: self).get(ImageView.self, key: #function)
+
+     }
+     var zl_altStackView: StackView {
+         ZLViewFactory(base: self).get(StackView.self, key: #function)
+
+     }
+     
+     var zl_extraBtn: Button {
+         ZLViewFactory(base: self).get(Button.self, key: #function)
+
+     }
+     var zl_extraLab: Label {
+         ZLViewFactory(base: self).get(Label.self, key: #function)
+
+     }
+     var zl_extraImgView: ImageView {
+         ZLViewFactory(base: self).get(ImageView.self, key: #function)
+
+     }
+     var zl_extraStackView: StackView {
+         ZLViewFactory(base: self).get(StackView.self, key: #function)
+
+     }
+     
+     
+     var zl_pairLab: PairLabelView {
+         ZLViewFactory(base: self).get(PairLabelView.self, key: #function)
+
+     }
+     
+     var zl_pairImg: PairImageView {
+         ZLViewFactory(base: self).get(PairImageView.self, key: #function)
+
+     }
+     
+     var zl_pairBtn: PairButtonView {
+         ZLViewFactory(base: self).get(PairButtonView.self, key: #function)
+
+     }
+     
+     var zl_pairStackView: PairStackView {
+         ZLViewFactory(base: self).get(PairStackView.self, key: #function)
+
+     }
+     
+     var zl_imgViewLab: ImgLabelView {
+         ZLViewFactory(base: self).get(ImgLabelView.self, key: #function)
+
+     }
+     
+     var zl_imgViewBtn: ImgButtonView {
+         ZLViewFactory(base: self).get(ImgButtonView.self, key: #function)
+
+     }
+     
+     var zl_btnImgView: ButtonImgView {
+         ZLViewFactory(base: self).get(ButtonImgView.self, key: #function)
+
+     }
+     
+     var zl_btnLabel: ButtonLabView {
+         ZLViewFactory(base: self).get(ButtonLabView.self, key: #function)
+
+     }
+     
+     var zl_labelBtn: LabButtonView {
+         ZLViewFactory(base: self).get(LabButtonView.self, key: #function)
+
+     }
+     
+     var zl_labImgView: LabelImgView {
+         ZLViewFactory(base: self).get(LabelImgView.self, key: #function)
+
+     }
+     
+     var zl_wrapView: WrapperView {
+         let key = #function
+         if let view = zl_storage[key] as? WrapperView {return view}
+         let view = WrapperView.wrap(with: self)
+         zl_storage[key] = view
+         return view
+     }
+ }
+
+ */
