@@ -89,18 +89,19 @@ class ZLSwiftViewController: UIViewController {
                     .bgColor(UIColor.red)
                     .corner(4)
             }.spacing(50)
-                .alignment(.start)
-                .bgColor(UIColor.gray)
-                .firstStart(20)
-                .firstEnd(20)
-                .secondStart(20)
-                .secondEnd(20)
+             .insets(10, 10, 10, 10)
+             .alignment(.start)
+             .bgColor(UIColor.gray)
+             .firstStart(20)
+             .firstEnd(20)
+             .secondStart(20)
+             .secondEnd(20)
             
             
         }
 //        .height(300)
         
-        .inset(12, 12, 12, 12)               // 内边距
+        .insets(12, 12, 12, 12)               // 内边距
         .bgColor(UIColor(white: 0.92, alpha: 1))
         .corner(8)
         .border(1, UIColor.gray)
@@ -109,6 +110,7 @@ class ZLSwiftViewController: UIViewController {
         .leading(16)
         .trailing(-16)
       
+        
         
         HStackView {
 
@@ -120,22 +122,22 @@ class ZLSwiftViewController: UIViewController {
 
             20.minSpacing
 
-//            testView.flex.flex(1).align(.fill)
+            testView.flex.flex(1).align(.fill)
                 
             5
             
-//            testView.flex.flex(2).align(.fill)
+            testView.flex.flex(2).align(.fill)
 
             5
             
             testView.flex.align(.end)
 
-//            Spacer()
+            Spacer()
 
             testView.flex.square(28).align(.center)
            
         }
-        .inset(8, 12, 8, 12)
+        .insets(8, 12, 8, 12)
         .bgColor(UIColor(white: 0.95, alpha: 1))
         .corner(8)
         .border(1, UIColor.lightGray)

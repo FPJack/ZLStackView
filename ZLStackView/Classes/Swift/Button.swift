@@ -37,7 +37,7 @@ open class Button: ZLButton,CreatableView {
         return super.imageTouchOnly
     }
     
-//    @discardableResult
+    @discardableResult
     public func imageTouchOnly(_ imageTouchOnly: Bool) -> Self {
         super.imageTouchOnly(imageTouchOnly) as! Self
     }

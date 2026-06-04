@@ -1,7 +1,4 @@
-
 import UIKit
-
-
 public protocol CreatableView: UIView {
     init()
 }

@@ -264,8 +264,8 @@ open class StackView: ZLStackView,CreatableView {
     open override var inset: (CGFloat, CGFloat, CGFloat, CGFloat) -> ZLStackView {
         super.inset
     }
-    public func inset(_ top: CGFloat, _ left: CGFloat, _ bottom: CGFloat, _ right: CGFloat) -> Self {
-        super.inset(top, left, bottom, right) as! Self
+    public func insets(_ top: CGFloat, _ leading: CGFloat, _ bottom: CGFloat, _ trailing: CGFloat) -> Self {
+        super.inset(top, leading, bottom, trailing) as! Self
     }
     
     @available(*, unavailable)
