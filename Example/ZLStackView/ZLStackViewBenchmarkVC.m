@@ -75,6 +75,7 @@ static double zbMemMB(void) {
 
     for (NSInteger i = 0; i < kOuter; i++) {
         ZLStackView *col = ZLStackView.vertical.justifyFillEqually.alignFill.space(4);
+        col.tag = 1010;
         for (NSInteger j = 0; j < kMiddle; j++) {
             ZLStackView *row = ZLStackView
                 .horizontal

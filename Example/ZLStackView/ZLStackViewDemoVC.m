@@ -8,9 +8,12 @@
 
 #import "ZLStackViewDemoVC.h"
 #import "ZLStackView.h"
+#import <ZLStackView/ZLButton.h>
 #import "ZLLayout.h"
 #import <objc/runtime.h>
 #import <ZLStackView/ZLStackView.h>
+#import "ZLStackView_Example-Swift.h"
+@import ZLStackView;
 // ─────────────────────────────────────────
 #pragma mark - 辅助函数
 // ─────────────────────────────────────────
@@ -70,7 +73,19 @@ static ZLStackView *sectionView(NSString *title) {
     [super viewDidLoad];
     self.title = @"ZLStackView Demo";
     self.view.backgroundColor = [UIColor colorWithWhite:0.96 alpha:1];
-
+    
+  
+    {
+        ZLStackView *stackView =  ZLStackView.vertical
+              .addView(HButton)
+              
+              .addTo(self.view)
+              .centerOffset(0, 0 );
+        
+        NSLog(@"%@",stackView);
+    }
+    
+    return;
     ZLStackView *stack;
     ZLStackView.vertical.space(16).inset(16, 16, 16, 16)
         .assignToPtr(&stack)

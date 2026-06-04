@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class ZLPairView;
 ///firstView和secondView的组合视图，firstView和secondView分别是两个view，firstView在secondView的左边或者上边，取决于horizontal属性
-NS_SWIFT_NAME(PairView)
 @interface ZLPairView<__covariant ObjectType,
                         __covariant FirstView : UIView *,
                         __covariant SecondView: UIView* > : ZLBaseStackView<ObjectType>
@@ -147,33 +146,28 @@ NS_UNAVAILABLE;
 ZLPairStackView,ZLStackViewButton;
 
 ///两个Label的组合视图，firstView和secondView分别是两个Label，
-NS_SWIFT_NAME(PairLabelView)
 
 @interface ZLPairLabelView : ZLPairView<ZLPairLabelView *,ZLLabel *,ZLLabel *>
 
 @end
 
-NS_SWIFT_NAME(PairImageView)
 ///两个ImageView的组合视图，firstView和secondView分别是两个ImageView，
 @interface ZLPairImageView : ZLPairView<ZLPairImageView *,ZLImageView *,ZLImageView *>
 
 @end
 
-NS_SWIFT_NAME(PairButtonView)
 
 ///两个Button的组合视图，firstView和secondView分别是两个Button，
 @interface ZLPairButtonView : ZLPairView<ZLPairButtonView *,ZLButton *,ZLButton *>
 
 @end
 
-NS_SWIFT_NAME(ImgLabelView)
 
 /// ImageView和Label的组合视图，firstView是ImageView，secondView是Label
 @interface ZLImgLabelView : ZLPairView<ZLImgLabelView *,ZLImageView *,ZLLabel *>
 
 @end
 
-NS_SWIFT_NAME(ImgButtonView)
 
 /// ImageView和Button的组合视图，firstView是ImageView，secondView是Button
 @interface ZLImgButtonView : ZLPairView<ZLImgButtonView *,ZLImageView *,ZLButton *>
@@ -181,14 +175,12 @@ NS_SWIFT_NAME(ImgButtonView)
 @end
 
 
-NS_SWIFT_NAME(ButtonImgView)
 
 /// Button和ImageView的组合视图，firstView是Button，secondView是ImageView
 @interface ZLButtonImgView : ZLPairView<ZLButtonImgView *,ZLButton *,ZLImageView *>
 
 @end
 
-NS_SWIFT_NAME(ButtonLabView)
 
 ///Button和Label的组合视图，firstView是Button，secondView是Label
 @interface ZLButtonLabView : ZLPairView<ZLButtonLabView *,ZLButton *,ZLLabel *>
@@ -196,35 +188,30 @@ NS_SWIFT_NAME(ButtonLabView)
 @end
 
 
-NS_SWIFT_NAME(LabelImgView)
 
 /// Label和ImageView的组合视图，firstView是Label，secondView是ImageView
 @interface ZLLabelImgView : ZLPairView<ZLLabelImgView *,ZLLabel *,ZLImageView *>
 
 @end
 
-NS_SWIFT_NAME(LabButtonView)
 
 /// Label和Button的组合视图，firstView是Label，secondView是Button
 @interface ZLLabButtonView : ZLPairView<ZLLabButtonView *,ZLLabel *,ZLButton *>
 @end
 
 
-NS_SWIFT_NAME(ButtonStackView)
 
 /// Button和StackView的组合视图，firstView是Button，secondView是StackView
 @interface ZLButtonStackView : ZLPairView<ZLButtonStackView *,ZLButton *,ZLStackView *>
 @end
 
 
-NS_SWIFT_NAME(StackViewButton)
 
 /// StackView和Button的组合视图，firstView是StackView，secondView是Button
 @interface ZLStackViewButton : ZLPairView<ZLStackViewButton *,ZLStackView *,ZLButton *>
 @end
 
 
-NS_SWIFT_NAME(PairStackView)
 
 /// 两个StackView的组合视图，firstView和secondView分别是两个StackView，
 @interface ZLPairStackView : ZLPairView<ZLPairStackView *,ZLStackView *,ZLStackView *>

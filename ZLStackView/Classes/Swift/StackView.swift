@@ -204,12 +204,12 @@ public struct StackViewBuilder {
         component
     }
 }
-open class StackView: ZLStackView {
+open class StackView: ZLStackView,CreatableView {
     ///打开DSL构建会报错
     public override init(frame: CGRect) {
         super.init(frame: frame)
     }
-    init() {
+    required public  init() {
         super.init(frame: .zero)
     }
     public init(@StackViewBuilder builder: () -> [StackViewDSL]) {
@@ -290,8 +290,8 @@ open class StackView: ZLStackView {
         super.space
     }
     @discardableResult
-    public func spacing(_ space: CGFloat) -> Self {
-        super.space(space) as! Self
+    public func spacing(_ space: Float) -> Self {
+        super.space(CGFloat(space)) as! Self
     }
     
     @available(*, unavailable)
@@ -813,7 +813,7 @@ open class VStackView: StackView {
     open override class func vertical() -> Self {
         super.vertical()
     }
-    override init() {
+    public required init() {
         super.init()
     }
     public override init(frame: CGRect) {
@@ -852,7 +852,7 @@ open class HStackView: StackView {
          get { .horizontal }
          set { super.axis = newValue}
      }
-    override init() {
+    public required init() {
         super.init()
     }
     public override init(frame: CGRect) {

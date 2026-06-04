@@ -6,7 +6,7 @@
 //
 
 import UIKit
-open class Button: ZLButton {
+open class Button: ZLButton,CreatableView {
     @discardableResult
     public func axis(_ axis: ZLButtonAxis) -> Self {
         self.axis = axis
@@ -37,7 +37,7 @@ open class Button: ZLButton {
         return super.imageTouchOnly
     }
     
-    @discardableResult
+//    @discardableResult
     public func imageTouchOnly(_ imageTouchOnly: Bool) -> Self {
         super.imageTouchOnly(imageTouchOnly) as! Self
     }

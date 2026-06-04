@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class View: ZLView {
+open class View: ZLView,CreatableView {
 
     @available(*, unavailable)
     open override var onInit: (@escaping (ZLBaseView<AnyObject>) -> Void) -> ZLView {
@@ -281,3 +281,201 @@ open class WrapperView: ZLWrapperView {
         super.insets(top, left, bottom, right) as! Self
     }
 }
+
+private var storageKey: UInt8 = 0
+public extension UIView {
+    private var zl_storage: NSMutableDictionary {
+            if let dict = objc_getAssociatedObject(self, &storageKey) as? NSMutableDictionary {
+                return dict
+            }
+            let dict = NSMutableDictionary()
+            objc_setAssociatedObject(
+                self,
+                &storageKey,
+                dict,
+                .OBJC_ASSOCIATION_RETAIN_NONATOMIC
+            )
+            return dict
+        }
+    
+    var zl_btn: Button {
+        let key = #function
+        if let view = zl_storage[key] as? Button {return view}
+        let view = Button()
+        zl_storage[key] = view
+        return view
+    }
+    var zl_lab: Label {
+        let key = #function
+        if let view = zl_storage[key] as? Label {
+            return view
+        }
+        let view = Label()
+        zl_storage[key] = view
+        return view
+    }
+    var zl_imgView: ImageView {
+        let key = #function
+        if let view = zl_storage[key] as? ImageView {return view}
+        let view = ImageView()
+        zl_storage[key] = view
+        return view
+    }
+    
+    var zl_stackView: StackView {
+        let key = #function
+        if let view = zl_storage[key] as? StackView {return view}
+        let view = StackView()
+        zl_storage[key] = view
+        return view
+    }
+    
+    var zl_altBtn: Button {
+        let key = #function
+        if let view = zl_storage[key] as? Button {return view}
+        let view = Button()
+        zl_storage[key] = view
+        return view
+    }
+    var zl_altLab: Label {
+        let key = #function
+        if let view = zl_storage[key] as? Label {return view}
+        let view = Label()
+        zl_storage[key] = view
+        return view
+    }
+    var zl_altImgView: ImageView {
+        let key = #function
+        if let view = zl_storage[key] as? ImageView {return view}
+        let view = ImageView()
+        zl_storage[key] = view
+        return view
+    }
+    var zl_altStackView: StackView {
+        let key = #function
+        if let view = zl_storage[key] as? StackView {return view}
+        let view = StackView()
+        zl_storage[key] = view
+        return view
+    }
+    
+    var zl_extraBtn: Button {
+        let key = #function
+        if let view = zl_storage[key] as? Button {return view}
+        let view = Button()
+        zl_storage[key] = view
+        return view
+    }
+    var zl_extraLab: Label {
+        let key = #function
+        if let view = zl_storage[key] as? Label {return view}
+        let view = Label()
+        zl_storage[key] = view
+        return view
+    }
+    var zl_extraImgView: ImageView {
+        let key = #function
+        if let view = zl_storage[key] as? ImageView {return view}
+        let view = ImageView()
+        zl_storage[key] = view
+        return view
+    }
+    var zl_extraStackView: StackView {
+        let key = #function
+        if let view = zl_storage[key] as? StackView {return view}
+        let view = StackView()
+        zl_storage[key] = view
+        return view
+    }
+    
+    
+    var zl_pairLab: PairLabelView {
+        let key = #function
+        if let view = zl_storage[key] as? PairLabelView {return view}
+        let view = PairLabelView()
+        zl_storage[key] = view
+        return view
+    }
+    
+    var zl_pairImg: PairImageView {
+        let key = #function
+        if let view = zl_storage[key] as? PairImageView {return view}
+        let view = PairImageView()
+        zl_storage[key] = view
+        return view
+    }
+    
+    var zl_pairBtn: PairButtonView {
+        let key = #function
+        if let view = zl_storage[key] as? PairButtonView {return view}
+        let view = PairButtonView()
+        zl_storage[key] = view
+        return view
+    }
+    
+    var zl_pairStackView: PairStackView {
+        let key = #function
+        if let view = zl_storage[key] as? PairStackView {return view}
+        let view = PairStackView()
+        zl_storage[key] = view
+        return view
+    }
+    
+    var zl_imgViewLab: ImgLabelView {
+        let key = #function
+        if let view = zl_storage[key] as? ImgLabelView {return view}
+        let view = ImgLabelView()
+        zl_storage[key] = view
+        return view
+    }
+    
+    var zl_imgViewBtn: ImgButtonView {
+        let key = #function
+        if let view = zl_storage[key] as? ImgButtonView {return view}
+        let view = ImgButtonView()
+        zl_storage[key] = view
+        return view
+    }
+    
+    var zl_btnImgView: ButtonImgView {
+        let key = #function
+        if let view = zl_storage[key] as? ButtonImgView {return view}
+        let view = ButtonImgView()
+        zl_storage[key] = view
+        return view
+    }
+    
+    var zl_btnLabel: ButtonLabView {
+        let key = #function
+        if let view = zl_storage[key] as? ButtonLabView {return view}
+        let view = ButtonLabView()
+        zl_storage[key] = view
+        return view
+    }
+    
+    var zl_labelBtn: LabButtonView {
+        let key = #function
+        if let view = zl_storage[key] as? LabButtonView {return view}
+        let view = LabButtonView()
+        zl_storage[key] = view
+        return view
+    }
+    
+    var zl_labImgView: LabelImgView {
+        let key = #function
+        if let view = zl_storage[key] as? LabelImgView {return view}
+        let view = LabelImgView()
+        zl_storage[key] = view
+        return view
+    }
+    
+    var zl_wrapView: WrapperView {
+        let key = #function
+        if let view = zl_storage[key] as? WrapperView {return view}
+        let view = WrapperView.wrap(with: self)
+        zl_storage[key] = view
+        return view
+    }
+}
+
+

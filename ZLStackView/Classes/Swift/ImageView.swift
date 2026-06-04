@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class ImageView: ZLImageView {
+open class ImageView: ZLImageView,CreatableView {
     
     @available(*, unavailable)
     open override var img: (Any?) -> ZLImageView {

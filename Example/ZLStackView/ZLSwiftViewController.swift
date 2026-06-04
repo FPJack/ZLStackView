@@ -8,7 +8,12 @@
 
 import UIKit
 import ZLStackView
-
+@objcMembers
+class TestLabel : UILabel {
+    public func btn() -> Any? {
+        zl_btn
+    }
+}
 class ZLSwiftViewController: UIViewController {
     
     var testView: UIView {
@@ -41,7 +46,7 @@ class ZLSwiftViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-
+      
         VStackView {
 
             testView.flex.width(120).height(20)
@@ -73,8 +78,28 @@ class ZLSwiftViewController: UIViewController {
             Spacer()
 
             testView
+            
+            view.zl_pairLab.thenFirst { label in
+                label.text("Pair Label")
+                    .bgColor(UIColor.orange)
+                    .corner(4)
+                    
+            }.thenSecond { label in
+                label.text("Pair Label2")
+                    .bgColor(UIColor.red)
+                    .corner(4)
+            }.spacing(50)
+                .alignment(.start)
+                .bgColor(UIColor.gray)
+                .firstStart(20)
+                .firstEnd(20)
+                .secondStart(20)
+                .secondEnd(20)
+            
+            
         }
-        .height(300)
+//        .height(300)
+        
         .inset(12, 12, 12, 12)               // 内边距
         .bgColor(UIColor(white: 0.92, alpha: 1))
         .corner(8)
@@ -84,7 +109,8 @@ class ZLSwiftViewController: UIViewController {
         .leading(16)
         .trailing(-16)
       
-
+     
+        
         HStackView {
 
             testView.flex.height(30)
@@ -139,7 +165,6 @@ class ZLSwiftViewController: UIViewController {
         stackView.layer.cornerRadius = 8
         stackView.layer.borderWidth = 1
         view.addSubview(stackView)
-        
         
         
         

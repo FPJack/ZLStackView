@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class Label: ZLLabel {
+open class Label: ZLLabel,CreatableView {
     
     @available(*, unavailable)
     open override var insets: (CGFloat, CGFloat, CGFloat, CGFloat) -> ZLLabel {
@@ -100,7 +100,7 @@ open class Label: ZLLabel {
                       weight: UIFont.Weight = .regular,
                       lines: Int? = nil,
                       maxWidth: Float? = nil) -> Self {
-        if let text = text {
+        if let text = title {
             self.text = text
         }
         if let fontSize = fontSize {

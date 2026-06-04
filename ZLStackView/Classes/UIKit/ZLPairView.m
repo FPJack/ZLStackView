@@ -14,11 +14,6 @@
 - (void)insertArrangedSubview:(UIView *)view atIndex:(NSUInteger)stackIndex;
 @end
 @implementation ZLPairView
-- (void)didMoveToSuperview {
-    [super didMoveToSuperview];
-    [self first];
-    [self second];
-}
 - (UIView *)first {
     if (!_first) {
         _first = [self makeFirstView];
