@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class View: ZLView,CreatableView {
+open class View: ZLView {
 
     @available(*, unavailable)
     open override var onInit: (@escaping (ZLBaseView<AnyObject>) -> Void) -> ZLView {

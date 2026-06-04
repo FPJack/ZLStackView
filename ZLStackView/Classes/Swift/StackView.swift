@@ -204,7 +204,7 @@ public struct StackViewBuilder {
         component
     }
 }
-open class StackView: ZLStackView,CreatableView {
+open class StackView: ZLStackView {
     ///打开DSL构建会报错
     public override init(frame: CGRect) {
         super.init(frame: frame)

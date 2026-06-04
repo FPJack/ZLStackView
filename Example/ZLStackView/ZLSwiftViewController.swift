@@ -49,59 +49,24 @@ class ZLSwiftViewController: UIViewController {
         view.backgroundColor = .white
       
         VStackView {
-
             testView.flex.width(120).height(20)
-            
             5
-
             testView.flex.flex(1).align(.fill).minHeight(20)
-            
             20.minSpacing
-
             testView.flex.flex(2).align(.fill)
-            
             50.maxSpacing
-            
             testView.flex.size(180, 24).align(.start).startSpacing(20)
-            
             10
-            
             if Bool.random() {
                 swView
             }else {
                 activityIndicator
             }
-            
             10
-
             testView.flex.size(180, 24).align(.end).endSpacing(20)
-
             Spacer()
-
             testView
-            
-            view.zl_pairLab.thenFirst { label in
-                label.text("Pair Label")
-                    .bgColor(UIColor.orange)
-                    .corner(4)
-                    
-            }.thenSecond { label in
-                label.text("Pair Label2")
-                    .bgColor(UIColor.red)
-                    .corner(4)
-            }.spacing(50)
-             .insets(10, 10, 10, 10)
-             .alignment(.start)
-             .bgColor(UIColor.gray)
-             .firstStart(20)
-             .firstEnd(20)
-             .secondStart(20)
-             .secondEnd(20)
-            
-            
         }
-//        .height(300)
-        
         .insets(12, 12, 12, 12)               // 内边距
         .bgColor(UIColor(white: 0.92, alpha: 1))
         .corner(8)

@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class Label: ZLLabel,CreatableView {
+open class Label: ZLLabel {
     
     @available(*, unavailable)
     open override var insets: (CGFloat, CGFloat, CGFloat, CGFloat) -> ZLLabel {

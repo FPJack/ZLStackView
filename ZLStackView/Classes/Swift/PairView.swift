@@ -196,3 +196,7 @@ open class PairStackView: PairView<StackView,StackView> {
    
 }
 
+extension UIView: CreatableView {
+    
+}
+

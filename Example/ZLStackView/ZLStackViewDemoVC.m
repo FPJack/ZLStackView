@@ -75,17 +75,7 @@ static ZLStackView *sectionView(NSString *title) {
     self.view.backgroundColor = [UIColor colorWithWhite:0.96 alpha:1];
     
   
-    {
-        ZLStackView *stackView =  ZLStackView.vertical
-              .addView(HButton)
-              
-              .addTo(self.view)
-              .centerOffset(0, 0 );
-        
-        NSLog(@"%@",stackView);
-    }
     
-    return;
     ZLStackView *stack;
     ZLStackView.vertical.space(16).inset(16, 16, 16, 16)
         .assignToPtr(&stack)

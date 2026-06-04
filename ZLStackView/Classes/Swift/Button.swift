@@ -6,7 +6,7 @@
 //
 
 import UIKit
-open class Button: ZLButton,CreatableView {
+open class Button: ZLButton {
     @discardableResult
     public func axis(_ axis: ZLButtonAxis) -> Self {
         self.axis = axis
