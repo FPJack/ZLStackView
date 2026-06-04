@@ -207,10 +207,7 @@ open class View: ZLView,CreatableView {
         super.then
     }
     
-    @discardableResult
-    public func then(_ then: @escaping (ZLBaseView<AnyObject>) -> Void) -> Self {
-        super.then(then) as! Self
-    }
+    
     
     @available(*, unavailable)
     open override var height: (CGFloat) -> ZLView {

@@ -7,6 +7,7 @@ target 'ZLStackView_Example' do
   pod 'ZLStackView', :path => '../'
   pod 'Masonry'
   pod 'SnapKit'
+  pod 'Then'
 
   target 'ZLStackView_Tests' do
     inherit! :search_paths

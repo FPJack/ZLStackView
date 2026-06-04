@@ -569,6 +569,13 @@
     };
 }
 
+- (id  _Nonnull (^)(void (^ _Nonnull)(id _Nonnull)))then {
+    return ^ZLBaseStackView* (void (^action)(id)) {
+        if (action) action(self);
+        return self;
+    };
+}
+
 - (id _Nonnull (^)(CGFloat))corner {
     return ^ZLBaseStackView*(CGFloat radius){
         self.layer.cornerRadius = radius;

@@ -243,10 +243,7 @@ open class Label: ZLLabel,CreatableView {
         super.then
     }
     
-    @discardableResult
-    public func then(_ then: @escaping (ZLLabel) -> Void) -> Self {
-        super.then(then) as! Self
-    }
+    
     
     @available(*, unavailable)
     open override var height: (CGFloat) -> ZLLabel {

@@ -512,6 +512,13 @@ open class StackView: ZLStackView,CreatableView {
     }
     
     @available(*, unavailable)
+    open override var then: (@escaping (ZLStackView) -> Void) -> ZLStackView{
+        super.then
+    }
+    
+    
+    
+    @available(*, unavailable)
     open override var corner: (CGFloat) -> ZLStackView {
         super.corner
     }
@@ -519,15 +526,6 @@ open class StackView: ZLStackView,CreatableView {
     public func corner(_ radius: CGFloat) -> Self {
         super.corner(radius) as! Self
     }
-    
-//    @available(*, unavailable)
-//    open override var corners: (CACornerMask) -> ZLStackView {
-//        if #available(iOS 11.0, *) {
-//            super.corners
-//        } else {
-//            // Fallback on earlier versions
-//        }
-//    }
     
     @available(iOS 11.0, *)
     @discardableResult

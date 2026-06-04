@@ -547,10 +547,7 @@ open class Button: ZLButton,CreatableView {
         super.then
     }
     
-    @discardableResult
-    public func then(_ then: @escaping (ZLButton) -> Void) -> Self {
-        super.then(then) as! Self
-    }
+    
     
     @available(*, unavailable)
     open override var height: (CGFloat) -> ZLButton {

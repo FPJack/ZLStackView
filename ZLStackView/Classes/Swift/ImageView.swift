@@ -142,10 +142,6 @@ open class ImageView: ZLImageView,CreatableView {
         super.then
     }
     
-    @discardableResult
-    public func then(_ then: @escaping (ZLImageView) -> Void) -> Self {
-        super.then(then) as! Self
-    }
     
     @available(*, unavailable)
     open override var height: (CGFloat) -> ZLImageView {

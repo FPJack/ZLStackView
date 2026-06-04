@@ -146,6 +146,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (readonly) ObjectType (^bgColor)(id color);// 便捷设置背景色，支持 UIColor 或 UIColorHex
 
+@property (readonly) ObjectType (^then)(void (^)(ObjectType  view));
+
+
 ///设置圆角
 @property (readonly) ObjectType (^corner)(CGFloat radius);
 ///设置哪个方向圆角 CACornerMask 11可用
