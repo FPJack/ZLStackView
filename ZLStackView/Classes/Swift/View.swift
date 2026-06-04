@@ -300,7 +300,7 @@ public extension UIView {
          }
      
    
-     private func getView<T: CreatableView>(_ type: T.Type,key: String) -> T {
+     private func getView<T: CreatableView>(_ type: T.Type,_ key: String) -> T {
          if let v = zl_storage[key] as? T {return v}
          let v = T()
          zl_storage[key] = v
@@ -309,55 +309,55 @@ public extension UIView {
      }
      ///第一组
      var zl_btn: Button {
-          getView(Button.self, key: #function)
+          getView(Button.self, #function)
      }
      
      var zl_lab: Label {
-         getView(Label.self, key: #function)
+         getView(Label.self, #function)
      }
      var zl_imgView: ImageView {
-         getView(ImageView.self, key: #function)
+         getView(ImageView.self, #function)
      }
      
      var zl_stackView: StackView {
-         getView(StackView.self, key: #function)
+         getView(StackView.self, #function)
      }
     
     
      ///第二组
      var zl_altBtn: Button {
-         getView(Button.self, key: #function)
+         getView(Button.self, #function)
 
      }
      var zl_altLab: Label {
-         getView(Label.self, key: #function)
+         getView(Label.self, #function)
 
      }
      var zl_altImgView: ImageView {
-         getView(ImageView.self, key: #function)
+         getView(ImageView.self, #function)
 
      }
      var zl_altStackView: StackView {
-         getView(StackView.self, key: #function)
+         getView(StackView.self, #function)
 
      }
      
     
     ///第三组
      var zl_extraBtn: Button {
-         getView(Button.self, key: #function)
+         getView(Button.self, #function)
 
      }
      var zl_extraLab: Label {
-         getView(Label.self, key: #function)
+         getView(Label.self, #function)
 
      }
      var zl_extraImgView: ImageView {
-         getView(ImageView.self, key: #function)
+         getView(ImageView.self, #function)
 
      }
      var zl_extraStackView: StackView {
-         getView(StackView.self, key: #function)
+         getView(StackView.self, #function)
 
      }
      
@@ -365,52 +365,52 @@ public extension UIView {
     
     ///成对view
      var zl_pairLab: PairLabelView {
-         getView(PairLabelView.self, key: #function)
+         getView(PairLabelView.self, #function)
 
      }
      
      var zl_pairImg: PairImageView {
-         getView(PairImageView.self, key: #function)
+         getView(PairImageView.self, #function)
 
      }
      
      var zl_pairBtn: PairButtonView {
-         getView(PairButtonView.self, key: #function)
+         getView(PairButtonView.self, #function)
 
      }
      
      var zl_pairStackView: PairStackView {
-         getView(PairStackView.self, key: #function)
+         getView(PairStackView.self, #function)
 
      }
      
      var zl_imgViewLab: ImgLabelView {
-         getView(ImgLabelView.self, key: #function)
+         getView(ImgLabelView.self, #function)
 
      }
      
      var zl_imgViewBtn: ImgButtonView {
-         getView(ImgButtonView.self, key: #function)
+         getView(ImgButtonView.self, #function)
 
      }
      
      var zl_btnImgView: ButtonImgView {
-         getView(ButtonImgView.self, key: #function)
+         getView(ButtonImgView.self, #function)
 
      }
      
      var zl_btnLabel: ButtonLabView {
-         getView(ButtonLabView.self, key: #function)
+         getView(ButtonLabView.self, #function)
 
      }
      
      var zl_labelBtn: LabButtonView {
-         getView(LabButtonView.self, key: #function)
+         getView(LabButtonView.self, #function)
 
      }
      
      var zl_labImgView: LabelImgView {
-         getView(LabelImgView.self, key: #function)
+         getView(LabelImgView.self, #function)
 
      }
      
